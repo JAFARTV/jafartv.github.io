@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/darke/Downloads/index_3.html -->
+<!-- saved from url=(0045)file:///C:/Users/darke/Downloads/index_8.html -->
 <html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +8,24 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    --green-bg: #004526;
+    --green-card: #003a1f;
+    --green-deep: #002e18;
+    --green-border: #1a5c35;
+    --green-border-light: #2a7a4a;
+    --green-muted: #5a9a70;
+    --green-soft: #7aaa8a;
+    --text-main: #e8f5ec;
+    --text-dim: #b8d8c4;
+    --white: #ffffff;
+    --white-dim: rgba(255,255,255,0.13);
+    --white-hover: rgba(255,255,255,0.07);
+  }
+
   body {
-    font-family: 'Inter', sans-serif;
-    background: #004526;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--green-bg);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -19,152 +34,282 @@
     padding: 3rem 1rem;
   }
 
-  /* ── SECTION BOUTON ── */
   #hero {
     text-align: center;
-    padding: 2rem 1rem;
+    padding: 2.5rem 1.5rem;
+    max-width: 520px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--green-soft);
+    border: 1px solid var(--green-border);
+    border-radius: 20px;
+    padding: 0.3rem 0.9rem;
+    margin-bottom: 1.4rem;
   }
 
   .hero-title {
-    font-size: 1.1rem;
-    color: #b8d8c4;
-    margin-bottom: 0.4rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.6rem;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
   }
 
   .hero-sub {
-    font-size: 0.85rem;
-    color: #7aaa8a;
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: var(--green-soft);
+    margin-bottom: 2.2rem;
+    line-height: 1.5;
   }
+  .hero-sub strong { color: var(--white); font-weight: 700; }
 
   #btn-postule {
-    background: #ffffff;
-    color: #004526;
+    background: var(--white);
+    color: var(--green-bg);
     border: none;
-    border-radius: 10px;
-    padding: 0.85rem 2.4rem;
-    font-size: 1rem;
+    border-radius: 12px;
+    padding: 1.05rem 3rem;
+    font-size: 1.05rem;
     font-weight: 800;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 1px;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 1.5px;
     cursor: pointer;
-    transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
-    box-shadow: 0 4px 20px rgba(255,255,255,0.2);
+    transition: background 0.15s, transform 0.12s, box-shadow 0.2s;
+    box-shadow: 0 6px 30px rgba(255,255,255,0.18);
     text-transform: uppercase;
   }
   #btn-postule:hover {
-    background: #e0e0e0;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(255,255,255,0.3);
+    background: #e8e8e8;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(255,255,255,0.25);
   }
 
   .hero-hint {
-    font-size: 12px;
-    color: #5a9a70;
-    margin-top: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 30px;
+    padding: 0.4rem 1rem;
+    margin-top: 1.2rem;
+    letter-spacing: 0.3px;
   }
 
-  /* ── QUESTIONNAIRE (caché par défaut) ── */
   #questionnaire-wrap {
     display: none;
     width: 100%;
-    max-width: 560px;
+    max-width: 580px;
     margin-top: 2rem;
-    animation: fadeUp 0.35s ease both;
+    animation: fadeUp 0.4s ease both;
   }
 
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
+    from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
   .brand {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1rem;
-    letter-spacing: 3px;
-    color: #ffffff;
+    letter-spacing: 4px;
+    color: var(--white);
     text-align: center;
     margin-bottom: 1.2rem;
-    opacity: 0.8;
+    opacity: 0.4;
   }
 
   .card {
-    background: #003a1f;
-    border: 1px solid #2a6040;
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    background: var(--green-card);
+    border: 1px solid var(--green-border);
+    border-radius: 20px;
+    padding: 2.4rem;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.55);
   }
 
-  .progress-wrap { display: flex; gap: 8px; margin-bottom: 0.6rem; }
-  .pb { flex: 1; height: 3px; border-radius: 2px; background: #1e4d2a; transition: background 0.4s; }
-  .pb.done { background: #ffffff; }
-  .pb.active { background: #ffffff88; }
+  .progress-wrap { display: flex; gap: 6px; margin-bottom: 2rem; }
+  .pb { flex: 1; height: 3px; border-radius: 3px; background: var(--green-deep); transition: background 0.4s; }
+  .pb.done { background: var(--white); }
+  .pb.active { background: rgba(255,255,255,0.35); }
 
-  .step-label { font-size: 11px; color: #7aaa8a; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .step-label {
+    font-size: 10.5px;
+    color: var(--green-soft);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
 
-  .q-title { font-size: 1rem; font-weight: 700; color: #e8f5ec; line-height: 1.45; margin-bottom: 0.9rem; }
+  .q-block { margin-bottom: 0.5rem; }
 
-  .options { display: flex; flex-direction: column; gap: 7px; }
+  .q-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 1.1rem;
+    letter-spacing: -0.3px;
+    border-left: 3px solid rgba(255,255,255,0.35);
+    padding-left: 0.85rem;
+  }
+
+  .q-divider {
+    height: 1px;
+    background: var(--green-border);
+    margin: 1.8rem 0;
+    opacity: 0.5;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 9px; }
 
   .opt {
-    display: flex; align-items: flex-start; gap: 10px;
-    background: #004020; border: 1.5px solid #2a6040; border-radius: 10px;
-    padding: 0.7rem 1rem; cursor: pointer;
-    transition: border-color 0.18s, background 0.18s, transform 0.12s;
-    text-align: left; width: 100%; outline: none;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    background: rgba(255,255,255,0.03);
+    border: 1.5px solid var(--green-border);
+    border-radius: 12px;
+    padding: 0.9rem 1.15rem;
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s, transform 0.15s, box-shadow 0.18s;
+    text-align: left;
+    width: 100%;
+    outline: none;
   }
-  .opt:hover { border-color: #ffffff; background: #005030; transform: translateX(2px); }
-  .opt.selected { border-color: #ffffff; background: #005030; }
+  .opt:hover {
+    border-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.09);
+    transform: translateX(4px);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
+  }
+  .opt.selected {
+    border-color: var(--white);
+    background: rgba(255,255,255,0.14);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
+  }
 
   .opt-badge {
-    flex-shrink: 0; width: 24px; height: 24px; border-radius: 6px;
-    background: #003a1f; border: 1px solid #3a7050;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 800; color: #ffffff; margin-top: 1px;
-    transition: background 0.18s, border-color 0.18s;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    background: var(--green-deep);
+    border: 1.5px solid var(--green-border-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--green-soft);
+    transition: background 0.18s, border-color 0.18s, color 0.18s;
   }
-  .opt.selected .opt-badge { background: #ffffff; color: #004526; border-color: #ffffff; }
-  .opt-text { font-size: 0.875rem; color: #b8d8c4; line-height: 1.45; }
-  .opt.selected .opt-text { color: #fff; }
+  .opt:hover .opt-badge { border-color: rgba(255,255,255,0.5); color: var(--white); }
+  .opt.selected .opt-badge { background: var(--white); color: var(--green-bg); border-color: var(--white); }
 
-  .q-divider { height: 1px; background: #1e4d2a; margin: 1.5rem 0; }
+  .opt-text {
+    font-size: 0.92rem;
+    color: var(--text-dim);
+    line-height: 1.45;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  .opt:hover .opt-text { color: var(--white); }
+  .opt.selected .opt-text { color: var(--white); font-weight: 700; }
+
+  .text-field-wrap { margin-bottom: 0.5rem; }
+
+  .text-field {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1.5px solid var(--green-border);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    color: var(--white);
+    outline: none;
+    transition: border-color 0.18s, background 0.18s;
+  }
+  .text-field::placeholder { color: rgba(122,170,138,0.45); font-style: italic; }
+  .text-field:focus {
+    border-color: rgba(255,255,255,0.55);
+    background: rgba(255,255,255,0.07);
+  }
+
+  .field-hint {
+    font-size: 11.5px;
+    color: var(--green-muted);
+    margin-top: 0.45rem;
+    font-style: italic;
+  }
 
   .nav {
-    display: flex; align-items: center; gap: 10px;
-    margin-top: 1.75rem; padding-top: 1.5rem;
-    border-top: 1px solid #1e4d2a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--green-border);
   }
+
   .btn-back {
-    background: transparent; border: 1.5px solid #2a6040; color: #7aaa8a;
-    border-radius: 8px; padding: 0.6rem 1rem; font-size: 0.875rem;
-    font-family: 'Inter', sans-serif; cursor: pointer;
+    background: transparent;
+    border: 1.5px solid var(--green-border);
+    color: var(--green-soft);
+    border-radius: 9px;
+    padding: 0.65rem 1.1rem;
+    font-size: 0.875rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
     transition: border-color 0.15s, color 0.15s;
   }
-  .btn-back:hover { border-color: #ffffff; color: #ffffff; }
+  .btn-back:hover { border-color: var(--white); color: var(--white); }
 
   .btn-next {
-    background: #ffffff; color: #004526; border: none; border-radius: 8px;
-    padding: 0.65rem 1.6rem; font-size: 0.9rem; font-weight: 800;
-    font-family: 'Inter', sans-serif; letter-spacing: 0.5px; cursor: pointer;
-    transition: background 0.15s, transform 0.1s; margin-left: auto;
+    background: var(--white);
+    color: var(--green-bg);
+    border: none;
+    border-radius: 9px;
+    padding: 0.7rem 1.8rem;
+    font-size: 0.9rem;
+    font-weight: 800;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    margin-left: auto;
   }
-  .btn-next:hover { background: #e0e0e0; transform: translateY(-1px); }
+  .btn-next:hover { background: #e8e8e8; transform: translateY(-1px); }
+  .btn-next:disabled { background: rgba(255,255,255,0.3); cursor: not-allowed; transform: none; }
 
   .error-msg { font-size: 12px; color: #e07070; margin-left: auto; display: none; }
   .error-msg.show { display: block; }
 
-  /* Result */
   .result { text-align: center; padding: 0.5rem 0; }
-  .result-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: #ffffff; letter-spacing: 2px; margin-bottom: 0.4rem; }
-  .result-sub { font-size: 0.9rem; color: #7aaa8a; line-height: 1.6; margin-bottom: 1.75rem; }
-  .summary { background: #004020; border: 1px solid #2a6040; border-radius: 12px; padding: 1rem 1.25rem; text-align: left; }
-  .s-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 0.45rem 0; font-size: 0.82rem; border-bottom: 1px solid #1e4d2a; }
+  .result-icon { font-size: 2.8rem; margin-bottom: 1rem; }
+  .result-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: var(--white); letter-spacing: 2px; margin-bottom: 0.5rem; }
+  .result-sub { font-size: 0.95rem; color: var(--green-soft); line-height: 1.65; margin-bottom: 2rem; }
+  .summary { background: var(--green-deep); border: 1px solid var(--green-border); border-radius: 14px; padding: 1.1rem 1.4rem; text-align: left; }
+  .s-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 0.55rem 0; font-size: 0.85rem; border-bottom: 1px solid var(--green-border); }
   .s-row:last-child { border-bottom: none; }
-  .s-lbl { color: #7aaa8a; white-space: nowrap; flex-shrink: 0; }
-  .s-val { color: #e8f5ec; font-weight: 600; text-align: right; }
-  .btn-restart { margin-top: 1.5rem; background: transparent; border: 1.5px solid #2a6040; color: #7aaa8a; border-radius: 8px; padding: 0.55rem 1.4rem; font-size: 0.85rem; font-family: 'Inter', sans-serif; cursor: pointer; transition: border-color 0.15s, color 0.15s; }
-  .btn-restart:hover { border-color: #ffffff; color: #ffffff; }
+  .s-lbl { color: var(--green-soft); white-space: nowrap; flex-shrink: 0; font-weight: 500; }
+  .s-val { color: var(--text-main); font-weight: 700; text-align: right; max-width: 65%; word-break: break-word; }
+
+  .btn-restart { margin-top: 1.5rem; background: transparent; border: 1.5px solid var(--green-border); color: var(--green-soft); border-radius: 9px; padding: 0.6rem 1.5rem; font-size: 0.875rem; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: border-color 0.15s, color 0.15s; font-weight: 600; }
+  .btn-restart:hover { border-color: var(--white); color: var(--white); }
 
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   .animate-in { animation: fadeIn 0.28s ease both; }
@@ -172,213 +317,338 @@
 </head>
 <body>
 
-<!-- SECTION BOUTON -->
 <div id="hero">
-  <p class="hero-title">Postule pour travailler avec moi en dessous</p>
-  <p class="hero-sub">Et rejoins les +600 managers que j'ai accompagnés</p>
+  <div class="hero-badge">GRINDLAB V10</div>
+  <h1 class="hero-title">Postule pour<br>travailler avec nous</h1>
+  <p class="hero-sub">Rejoins les <strong>+100 élèves</strong> que nous avons accompagnés</p>
   <button id="btn-postule" onclick="ouvrirQuestionnaire()">POSTULE MAINTENANT</button>
-  <p class="hero-hint">⏱ Prend 30 secondes</p>
+  <div class="hero-hint">⏱ Seulement 30 secondes — fais-le maintenant</div>
 </div>
 
-<!-- QUESTIONNAIRE (caché au départ) -->
 <div id="questionnaire-wrap">
   <div class="brand">GRINDLAB V10</div>
   <div class="card" id="card">
-    <div class="progress-wrap" id="pbar"><div class="pb active"></div><div class="pb"></div><div class="pb"></div></div>
-    <div id="content"><div class="step-label animate-in">Étape 1 sur 3</div><div class="animate-in" style="animation-delay:0s"><div class="q-title">As-tu un PC portable ou fixe à disposition ?</div><div class="options" id="opts_pc"><button class="opt" onclick="pick(&#39;pc&#39;,&#39;J\&#39;ai un PC portable&#39;,this)">
-        <span class="opt-badge">1</span>
-        <span class="opt-text">J'ai un PC portable</span>
-      </button><button class="opt" onclick="pick(&#39;pc&#39;,&#39;J\&#39;ai un PC fixe&#39;,this)">
-        <span class="opt-badge">2</span>
-        <span class="opt-text">J'ai un PC fixe</span>
-      </button></div></div><div class="q-divider"></div><div class="animate-in" style="animation-delay:0.06s"><div class="q-title">Aujourd'hui, quelle situation te correspond le plus dans les Lives ?</div><div class="options" id="opts_niveau_live"><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;Je n\&#39;ai pas suffisamment de connaissances pour savoir si cela m\&#39;intéresse&#39;,this)">
-        <span class="opt-badge">0</span>
-        <span class="opt-text">Je n'ai pas suffisamment de connaissances pour savoir si cela m'intéresse</span>
-      </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;Je viens de découvrir les lives interactifs et je veux me lancer&#39;,this)">
-        <span class="opt-badge">1</span>
-        <span class="opt-text">Je viens de découvrir les lives interactifs et je veux me lancer</span>
-      </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai quelques connaissances dans le domaine mais je n\&#39;ai jamais commencé&#39;,this)">
-        <span class="opt-badge">2</span>
-        <span class="opt-text">J'ai quelques connaissances dans le domaine mais je n'ai jamais commencé</span>
-      </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai déjà lancé 1 live mais je ne comprends pas comment faire de l\&#39;interactif&#39;,this)">
-        <span class="opt-badge">3</span>
-        <span class="opt-text">J'ai déjà lancé 1 live mais je ne comprends pas comment faire de l'interactif</span>
-      </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai déjà fait plusieurs lives mais j\&#39;ai peu ou pas assez de visibilité&#39;,this)">
-        <span class="opt-badge">4</span>
-        <span class="opt-text">J'ai déjà fait plusieurs lives mais j'ai peu ou pas assez de visibilité</span>
-      </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai de la visibilité mais je génère peu d\&#39;argent — je veux scaler et réussir davantage&#39;,this)">
-        <span class="opt-badge">5</span>
-        <span class="opt-text">J'ai de la visibilité mais je génère peu d'argent — je veux scaler et réussir davantage</span>
-      </button></div></div><div class="nav animate-in" style="animation-delay:0.15s"><span class="error-msg" id="errmsg">Réponds à toutes les questions</span><button class="btn-next" onclick="nextPage()">Continuer →</button></div></div>
+    <div class="progress-wrap" id="pbar"><div class="pb active"></div><div class="pb"></div><div class="pb"></div><div class="pb"></div><div class="pb"></div></div>
+    <div id="content"><div class="step-label animate-in">Étape 1 sur 5</div><div class="q-block animate-in" style="animation-delay:0s"><div class="q-title">As-tu un PC portable ou fixe à disposition ?</div><div class="options" id="opts_pc"><button class="opt" onclick="pick(&#39;pc&#39;,&#39;J\&#39;ai un PC portable&#39;,this)">
+            <span class="opt-badge">1</span>
+            <span class="opt-text">J'ai un PC portable</span>
+          </button><button class="opt" onclick="pick(&#39;pc&#39;,&#39;J\&#39;ai un PC fixe&#39;,this)">
+            <span class="opt-badge">2</span>
+            <span class="opt-text">J'ai un PC fixe</span>
+          </button></div></div><div class="q-divider"></div><div class="q-block animate-in" style="animation-delay:0.06s"><div class="q-title">Où en es-tu avec les Lives TikTok ?</div><div class="options" id="opts_niveau_live"><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;Je ne sais pas encore si ça m\&#39;intéresse&#39;,this)">
+            <span class="opt-badge">0</span>
+            <span class="opt-text">Je ne sais pas encore si ça m'intéresse</span>
+          </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;Je viens de découvrir les lives interactifs et je veux me lancer&#39;,this)">
+            <span class="opt-badge">1</span>
+            <span class="opt-text">Je viens de découvrir les lives interactifs et je veux me lancer</span>
+          </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai des connaissances mais je n\&#39;ai jamais commencé&#39;,this)">
+            <span class="opt-badge">2</span>
+            <span class="opt-text">J'ai des connaissances mais je n'ai jamais commencé</span>
+          </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai lancé 1 live mais je ne comprends pas l\&#39;interactif&#39;,this)">
+            <span class="opt-badge">3</span>
+            <span class="opt-text">J'ai lancé 1 live mais je ne comprends pas l'interactif</span>
+          </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai fait plusieurs lives mais j\&#39;ai peu de visibilité&#39;,this)">
+            <span class="opt-badge">4</span>
+            <span class="opt-text">J'ai fait plusieurs lives mais j'ai peu de visibilité</span>
+          </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai de la visibilité mais je génère peu d\&#39;argent — je veux scaler&#39;,this)">
+            <span class="opt-badge">5</span>
+            <span class="opt-text">J'ai de la visibilité mais je génère peu d'argent — je veux scaler</span>
+          </button></div></div><div class="nav animate-in" style="animation-delay:0.15s"><span class="error-msg" id="errmsg">Remplis tous les champs</span><button class="btn-next" id="btn-next" onclick="nextPage()">Continuer →</button></div></div>
   </div>
 </div>
 
 <script>
-function ouvrirQuestionnaire() {
-  const wrap = document.getElementById('questionnaire-wrap');
-  wrap.style.display = 'block';
-  document.getElementById('btn-postule').textContent = '✓ Formulaire ouvert ci-dessous';
-  document.getElementById('btn-postule').style.background = '#2a6040';
-  document.getElementById('btn-postule').style.color = '#b8d8c4';
-  document.getElementById('btn-postule').style.boxShadow = 'none';
-  document.getElementById('btn-postule').disabled = true;
-  setTimeout(() => wrap.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
-}
+  const FORMSPREE_URL = "https://formspree.io/f/xojykdkb";
 
-const pages = [
-  {
-    label: "Étape 1 sur 3",
-    questions: [
-      {
-        key: "pc",
-        title: "As-tu un PC portable ou fixe à disposition ?",
-        options: [
-          { num: "1", text: "J'ai un PC portable" },
-          { num: "2", text: "J'ai un PC fixe" }
-        ]
-      },
-      {
-        key: "niveau_live",
-        title: "Aujourd'hui, quelle situation te correspond le plus dans les Lives ?",
-        options: [
-          { num: "0", text: "Je n'ai pas suffisamment de connaissances pour savoir si cela m'intéresse" },
-          { num: "1", text: "Je viens de découvrir les lives interactifs et je veux me lancer" },
-          { num: "2", text: "J'ai quelques connaissances dans le domaine mais je n'ai jamais commencé" },
-          { num: "3", text: "J'ai déjà lancé 1 live mais je ne comprends pas comment faire de l'interactif" },
-          { num: "4", text: "J'ai déjà fait plusieurs lives mais j'ai peu ou pas assez de visibilité" },
-          { num: "5", text: "J'ai de la visibilité mais je génère peu d'argent — je veux scaler et réussir davantage" }
-        ]
-      }
-    ]
-  },
-  {
-    label: "Étape 2 sur 3",
-    questions: [
-      {
-        key: "situation_pro",
-        title: "Quelle est ta situation professionnelle actuelle ?",
-        options: [
-          { num: "A", text: "Étudiant(e)" },
-          { num: "B", text: "Sans emploi" },
-          { num: "C", text: "Salarié(e)" },
-          { num: "D", text: "Entrepreneur(e)" },
-          { num: "E", text: "Autre" }
-        ]
-      }
-    ]
-  },
-  {
-    label: "Étape 3 sur 3",
-    questions: [
-      {
-        key: "budget",
-        title: "Combien es-tu prêt(e) à investir AUJOURD'HUI pour atteindre tes objectifs ?",
-        options: [
-          { num: "💡", text: "300€ – 1 000€ · Je comprends l'importance d'investir dans mes connaissances" },
-          { num: "🚀", text: "1 000€ – 2 000€ · Je veux les meilleures infos et être accompagné(e) par Jafar, Aztro et son équipe" },
-          { num: "🔥", text: "+2 000€ · Je suis prêt(e) à m'investir activement et je souhaite réussir plus que tout" }
-        ]
-      }
-    ]
+  function ouvrirQuestionnaire() {
+    const wrap = document.getElementById('questionnaire-wrap');
+    wrap.style.display = 'block';
+    const btn = document.getElementById('btn-postule');
+    btn.textContent = '✓ Formulaire ouvert ci-dessous';
+    btn.style.background = 'rgba(255,255,255,0.12)';
+    btn.style.color = '#7aaa8a';
+    btn.style.boxShadow = 'none';
+    btn.disabled = true;
+    setTimeout(() => wrap.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
   }
-];
 
-const labels = { pc: "Équipement", niveau_live: "Niveau Lives", situation_pro: "Situation pro", budget: "Budget" };
-let current = 0;
-let answers = {};
+  const pages = [
+    {
+      label: "Étape 1 sur 5",
+      questions: [
+        {
+          key: "pc", type: "options",
+          title: "As-tu un PC portable ou fixe à disposition ?",
+          options: [
+            { num: "1", text: "J'ai un PC portable" },
+            { num: "2", text: "J'ai un PC fixe" }
+          ]
+        },
+        {
+          key: "niveau_live", type: "options",
+          title: "Où en es-tu avec les Lives TikTok ?",
+          options: [
+            { num: "0", text: "Je ne sais pas encore si ça m'intéresse" },
+            { num: "1", text: "Je viens de découvrir les lives interactifs et je veux me lancer" },
+            { num: "2", text: "J'ai des connaissances mais je n'ai jamais commencé" },
+            { num: "3", text: "J'ai lancé 1 live mais je ne comprends pas l'interactif" },
+            { num: "4", text: "J'ai fait plusieurs lives mais j'ai peu de visibilité" },
+            { num: "5", text: "J'ai de la visibilité mais je génère peu d'argent — je veux scaler" }
+          ]
+        }
+      ]
+    },
+    {
+      label: "Étape 2 sur 5",
+      questions: [
+        {
+          key: "situation_pro", type: "options",
+          title: "Quelle est ta situation professionnelle ?",
+          options: [
+            { num: "A", text: "Étudiant(e)" },
+            { num: "B", text: "Sans emploi" },
+            { num: "C", text: "Salarié(e)" },
+            { num: "D", text: "Entrepreneur(e)" },
+            { num: "E", text: "Autre" }
+          ]
+        }
+      ]
+    },
+    {
+      label: "Étape 3 sur 5",
+      questions: [
+        {
+          key: "budget", type: "options",
+          title: "Combien es-tu prêt(e) à investir aujourd'hui ?",
+          options: [
+            { num: "💡", text: "300€ – 1 000€ · Je comprends l'importance d'investir dans mes connaissances" },
+            { num: "🚀", text: "1 000€ – 2 000€ · Je veux être accompagné(e) par Jafar, Aztro et leur équipe" },
+            { num: "🔥", text: "+2 000€ · Je suis prêt(e) à m'investir pleinement pour réussir" }
+          ]
+        }
+      ]
+    },
+    {
+      label: "Étape 4 sur 5",
+      questions: [
+        {
+          key: "prenom", type: "text",
+          title: "Quel est ton prénom ?",
+          placeholder: "Répondez ici"
+        },
+        {
+          key: "age", type: "options",
+          title: "Quel est ton âge ?",
+          options: [
+            { num: "1", text: "16 – 18 ans" },
+            { num: "2", text: "18 – 24 ans" },
+            { num: "3", text: "25 – 30 ans" },
+            { num: "4", text: "+30 ans" }
+          ]
+        }
+      ]
+    },
+    {
+      label: "Étape 5 sur 5",
+      questions: [
+        {
+          key: "telephone", type: "text",
+          title: "Ton numéro de téléphone",
+          placeholder: "Répondez ici"
+        },
+        {
+          key: "discord", type: "text",
+          title: "Ton pseudo Discord",
+          placeholder: "Répondez ici",
+          hint: "Vérifie bien à mettre le bon @votre-pseudo"
+        },
+        {
+          key: "email", type: "text",
+          title: "Ton adresse email",
+          placeholder: "Répondez ici"
+        }
+      ]
+    }
+  ];
 
-function renderPbar() {
-  document.getElementById('pbar').innerHTML = pages.map((_, i) => {
-    let cls = 'pb';
-    if (i < current) cls += ' done';
-    else if (i === current) cls += ' active';
-    return `<div class="${cls}"></div>`;
-  }).join('');
-}
+  const labels = {
+    pc: "Équipement",
+    niveau_live: "Niveau Lives",
+    situation_pro: "Situation pro",
+    budget: "Budget",
+    prenom: "Prénom",
+    age: "Âge",
+    telephone: "Téléphone",
+    discord: "Discord",
+    email: "Email"
+  };
 
-function renderPage() {
-  if (current >= pages.length) { renderResult(); return; }
-  renderPbar();
-  const page = pages[current];
-  let html = `<div class="step-label animate-in">${page.label}</div>`;
-  page.questions.forEach((q, qi) => {
-    if (qi > 0) html += `<div class="q-divider"></div>`;
-    html += `<div class="animate-in" style="animation-delay:${qi * 0.06}s">`;
-    html += `<div class="q-title">${q.title}</div>`;
-    html += `<div class="options" id="opts_${q.key}">`;
-    q.options.forEach(o => {
-      const sel = answers[q.key] === o.text ? ' selected' : '';
-      const safe = o.text.replace(/'/g, "\\'");
-      html += `<button class="opt${sel}" onclick="pick('${q.key}','${safe}',this)">
-        <span class="opt-badge">${o.num}</span>
-        <span class="opt-text">${o.text}</span>
-      </button>`;
+  let current = 0;
+  let answers = {};
+
+  function renderPbar() {
+    document.getElementById('pbar').innerHTML = pages.map((_, i) => {
+      let cls = 'pb';
+      if (i < current) cls += ' done';
+      else if (i === current) cls += ' active';
+      return `<div class="${cls}"></div>`;
+    }).join('');
+  }
+
+  function renderPage() {
+    if (current >= pages.length) { renderResult(); return; }
+    renderPbar();
+    const page = pages[current];
+    let html = `<div class="step-label animate-in">${page.label}</div>`;
+
+    page.questions.forEach((q, qi) => {
+      if (qi > 0) html += `<div class="q-divider"></div>`;
+      html += `<div class="q-block animate-in" style="animation-delay:${qi * 0.06}s">`;
+      html += `<div class="q-title">${q.title}</div>`;
+
+      if (q.type === 'text') {
+        html += `<div class="text-field-wrap">
+          <input class="text-field" id="field_${q.key}" type="text"
+            placeholder="${q.placeholder}" value="${answers[q.key] || ''}"
+            oninput="answers['${q.key}'] = this.value" />
+          ${q.hint ? `<div class="field-hint">⚠️ ${q.hint}</div>` : ''}
+        </div>`;
+      } else {
+        html += `<div class="options" id="opts_${q.key}">`;
+        q.options.forEach(o => {
+          const sel = answers[q.key] === o.text ? ' selected' : '';
+          const safe = o.text.replace(/'/g, "\\'");
+          html += `<button class="opt${sel}" onclick="pick('${q.key}','${safe}',this)">
+            <span class="opt-badge">${o.num}</span>
+            <span class="opt-text">${o.text}</span>
+          </button>`;
+        });
+        html += `</div>`;
+      }
+      html += `</div>`;
     });
-    html += `</div></div>`;
-  });
-  html += `<div class="nav animate-in" style="animation-delay:0.15s">`;
-  if (current > 0) html += `<button class="btn-back" onclick="goBack()">← Retour</button>`;
-  html += `<span class="error-msg" id="errmsg">Réponds à toutes les questions</span>`;
-  const isLast = current === pages.length - 1;
-  html += `<button class="btn-next" onclick="nextPage()">${isLast ? 'Envoyer ✓' : 'Continuer →'}</button>`;
-  html += `</div>`;
-  document.getElementById('content').innerHTML = html;
-}
 
-function pick(key, val, btn) {
-  answers[key] = val;
-  document.getElementById('opts_' + key).querySelectorAll('.opt').forEach(b => b.classList.remove('selected'));
-  btn.classList.add('selected');
-  const err = document.getElementById('errmsg');
-  if (err) err.classList.remove('show');
-}
+    html += `<div class="nav animate-in" style="animation-delay:0.15s">`;
+    if (current > 0) html += `<button class="btn-back" onclick="goBack()">← Retour</button>`;
+    html += `<span class="error-msg" id="errmsg">Remplis tous les champs</span>`;
+    const isLast = current === pages.length - 1;
+    html += `<button class="btn-next" id="btn-next" onclick="nextPage()">${isLast ? 'Envoyer ✓' : 'Continuer →'}</button>`;
+    html += `</div>`;
 
-function allAnswered() {
-  return pages[current].questions.every(q => answers[q.key] !== undefined);
-}
-
-function nextPage() {
-  if (!allAnswered()) {
-    const err = document.getElementById('errmsg');
-    if (err) err.classList.add('show');
-    return;
+    document.getElementById('content').innerHTML = html;
   }
-  current++;
+
+  function pick(key, val, btn) {
+    answers[key] = val;
+    document.getElementById('opts_' + key).querySelectorAll('.opt').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    const err = document.getElementById('errmsg');
+    if (err) err.classList.remove('show');
+  }
+
+  function allAnswered() {
+    for (const q of pages[current].questions) {
+      if (q.type === 'text') {
+        const el = document.getElementById('field_' + q.key);
+        if (el) answers[q.key] = el.value.trim();
+        if (!answers[q.key]) return false;
+      } else {
+        if (!answers[q.key]) return false;
+      }
+    }
+    return true;
+  }
+
+  async function envoyerFormspree() {
+    const data = {
+      Prénom:         answers.prenom       || '-',
+      Âge:            answers.age          || '-',
+      Équipement:     answers.pc           || '-',
+      "Niveau Lives": answers.niveau_live  || '-',
+      "Situation pro":answers.situation_pro|| '-',
+      Budget:         answers.budget       || '-',
+      Téléphone:      answers.telephone    || '-',
+      Discord:        answers.discord      || '-',
+      Email:          answers.email        || '-'
+    };
+
+    const response = await fetch(FORMSPREE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) throw new Error('Formspree error');
+  }
+
+  function nextPage() {
+    if (!allAnswered()) {
+      const err = document.getElementById('errmsg');
+      if (err) err.classList.add('show');
+      return;
+    }
+
+    const isLast = current === pages.length - 1;
+
+    if (isLast) {
+      const btn = document.getElementById('btn-next');
+      btn.disabled = true;
+      btn.textContent = 'Envoi en cours…';
+
+      envoyerFormspree()
+        .then(() => {
+          current++;
+          renderPage();
+          document.getElementById('questionnaire-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        })
+        .catch(() => {
+          btn.disabled = false;
+          btn.textContent = 'Envoyer ✓';
+          const errMsg = document.getElementById('errmsg');
+          if (errMsg) {
+            errMsg.textContent = "Erreur d'envoi, réessaie.";
+            errMsg.classList.add('show');
+          }
+        });
+    } else {
+      current++;
+      renderPage();
+      document.getElementById('questionnaire-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function goBack() {
+    if (current > 0) { current--; renderPage(); }
+  }
+
+  function renderResult() {
+    renderPbar();
+    let rows = Object.entries(answers).map(([k, v]) =>
+      `<div class="s-row"><span class="s-lbl">${labels[k] || k}</span><span class="s-val">${v}</span></div>`
+    ).join('');
+    document.getElementById('content').innerHTML = `
+      <div class="result animate-in">
+        <div class="result-icon">✅</div>
+        <div class="result-title">Merci ${answers.prenom || ''} !</div>
+        <div class="result-sub">Tes réponses ont bien été enregistrées.<br>L'équipe Grindlab va te contacter très rapidement.</div>
+        <div class="summary">${rows}</div>
+        <button class="btn-restart" onclick="restart()">Recommencer</button>
+      </div>`;
+  }
+
+  function restart() {
+    current = 0; answers = {};
+    const btn = document.getElementById('btn-postule');
+    btn.textContent = 'POSTULE MAINTENANT';
+    btn.style.background = '#ffffff';
+    btn.style.color = '#004526';
+    btn.style.boxShadow = '0 6px 30px rgba(255,255,255,0.18)';
+    btn.disabled = false;
+    document.getElementById('questionnaire-wrap').style.display = 'none';
+    renderPage();
+  }
+
   renderPage();
-  document.getElementById('questionnaire-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function goBack() {
-  if (current > 0) { current--; renderPage(); }
-}
-
-function renderResult() {
-  renderPbar();
-  let rows = Object.entries(answers).map(([k, v]) =>
-    `<div class="s-row"><span class="s-lbl">${labels[k] || k}</span><span class="s-val">${v}</span></div>`
-  ).join('');
-  document.getElementById('content').innerHTML = `
-    <div class="result animate-in">
-      <div style="font-size:2.5rem;margin-bottom:.75rem">✅</div>
-      <div class="result-title">Merci !</div>
-      <div class="result-sub">Tes réponses ont bien été enregistrées.<br>L'équipe Grindlab va te contacter très rapidement.</div>
-      <div class="summary">${rows}</div>
-      <button class="btn-restart" onclick="restart()">Recommencer</button>
-    </div>`;
-}
-
-function restart() {
-  current = 0; answers = {};
-  document.getElementById('btn-postule').textContent = 'POSTULE MAINTENANT';
-  document.getElementById('btn-postule').style.background = '#ffffff';
-  document.getElementById('btn-postule').style.color = '#004526';
-  document.getElementById('btn-postule').style.boxShadow = '0 4px 20px rgba(255,255,255,0.2)';
-  document.getElementById('btn-postule').disabled = false;
-  document.getElementById('questionnaire-wrap').style.display = 'none';
-  renderPage();
-}
-
-renderPage();
 </script>
 
 
