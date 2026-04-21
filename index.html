@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- saved from url=(0045)file:///C:/Users/darke/Downloads/index_3.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Postule – GRINDLAB V10</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<link href="./Postule – GRINDLAB V10_files/css2" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     font-family: 'Inter', sans-serif;
-    background: #0b1f13;
+    background: #004526;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -33,13 +33,13 @@
 
   .hero-sub {
     font-size: 0.85rem;
-    color: #5a8a6a;
+    color: #7aaa8a;
     margin-bottom: 2rem;
   }
 
   #btn-postule {
-    background: #f5c518;
-    color: #0b1a0f;
+    background: #ffffff;
+    color: #004526;
     border: none;
     border-radius: 10px;
     padding: 0.85rem 2.4rem;
@@ -49,18 +49,18 @@
     letter-spacing: 1px;
     cursor: pointer;
     transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
-    box-shadow: 0 4px 20px rgba(245,197,24,0.3);
+    box-shadow: 0 4px 20px rgba(255,255,255,0.2);
     text-transform: uppercase;
   }
   #btn-postule:hover {
-    background: #e0b010;
+    background: #e0e0e0;
     transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(245,197,24,0.4);
+    box-shadow: 0 8px 28px rgba(255,255,255,0.3);
   }
 
   .hero-hint {
     font-size: 12px;
-    color: #3a6048;
+    color: #5a9a70;
     margin-top: 0.75rem;
   }
 
@@ -82,26 +82,26 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1rem;
     letter-spacing: 3px;
-    color: #f5c518;
+    color: #ffffff;
     text-align: center;
     margin-bottom: 1.2rem;
     opacity: 0.8;
   }
 
   .card {
-    background: #0f2419;
-    border: 1px solid #2a5035;
+    background: #003a1f;
+    border: 1px solid #2a6040;
     border-radius: 16px;
     padding: 2rem;
     box-shadow: 0 24px 60px rgba(0,0,0,0.5);
   }
 
   .progress-wrap { display: flex; gap: 8px; margin-bottom: 0.6rem; }
-  .pb { flex: 1; height: 3px; border-radius: 2px; background: #1e3d28; transition: background 0.4s; }
-  .pb.done { background: #f5c518; }
-  .pb.active { background: #f5c51888; }
+  .pb { flex: 1; height: 3px; border-radius: 2px; background: #1e4d2a; transition: background 0.4s; }
+  .pb.done { background: #ffffff; }
+  .pb.active { background: #ffffff88; }
 
-  .step-label { font-size: 11px; color: #5a8a6a; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .step-label { font-size: 11px; color: #7aaa8a; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1.5rem; }
 
   .q-title { font-size: 1rem; font-weight: 700; color: #e8f5ec; line-height: 1.45; margin-bottom: 0.9rem; }
 
@@ -109,62 +109,62 @@
 
   .opt {
     display: flex; align-items: flex-start; gap: 10px;
-    background: #152c1e; border: 1.5px solid #2a5035; border-radius: 10px;
+    background: #004020; border: 1.5px solid #2a6040; border-radius: 10px;
     padding: 0.7rem 1rem; cursor: pointer;
     transition: border-color 0.18s, background 0.18s, transform 0.12s;
     text-align: left; width: 100%; outline: none;
   }
-  .opt:hover { border-color: #f5c518; background: #1c3826; transform: translateX(2px); }
-  .opt.selected { border-color: #f5c518; background: #1c3d26; }
+  .opt:hover { border-color: #ffffff; background: #005030; transform: translateX(2px); }
+  .opt.selected { border-color: #ffffff; background: #005030; }
 
   .opt-badge {
     flex-shrink: 0; width: 24px; height: 24px; border-radius: 6px;
-    background: #1e4028; border: 1px solid #3a6048;
+    background: #003a1f; border: 1px solid #3a7050;
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 800; color: #f5c518; margin-top: 1px;
+    font-size: 11px; font-weight: 800; color: #ffffff; margin-top: 1px;
     transition: background 0.18s, border-color 0.18s;
   }
-  .opt.selected .opt-badge { background: #f5c518; color: #0f2419; border-color: #f5c518; }
+  .opt.selected .opt-badge { background: #ffffff; color: #004526; border-color: #ffffff; }
   .opt-text { font-size: 0.875rem; color: #b8d8c4; line-height: 1.45; }
   .opt.selected .opt-text { color: #fff; }
 
-  .q-divider { height: 1px; background: #1e3d28; margin: 1.5rem 0; }
+  .q-divider { height: 1px; background: #1e4d2a; margin: 1.5rem 0; }
 
   .nav {
     display: flex; align-items: center; gap: 10px;
     margin-top: 1.75rem; padding-top: 1.5rem;
-    border-top: 1px solid #1e3d28;
+    border-top: 1px solid #1e4d2a;
   }
   .btn-back {
-    background: transparent; border: 1.5px solid #2a5035; color: #5a8a6a;
+    background: transparent; border: 1.5px solid #2a6040; color: #7aaa8a;
     border-radius: 8px; padding: 0.6rem 1rem; font-size: 0.875rem;
     font-family: 'Inter', sans-serif; cursor: pointer;
     transition: border-color 0.15s, color 0.15s;
   }
-  .btn-back:hover { border-color: #f5c518; color: #f5c518; }
+  .btn-back:hover { border-color: #ffffff; color: #ffffff; }
 
   .btn-next {
-    background: #f5c518; color: #0b1a0f; border: none; border-radius: 8px;
+    background: #ffffff; color: #004526; border: none; border-radius: 8px;
     padding: 0.65rem 1.6rem; font-size: 0.9rem; font-weight: 800;
     font-family: 'Inter', sans-serif; letter-spacing: 0.5px; cursor: pointer;
     transition: background 0.15s, transform 0.1s; margin-left: auto;
   }
-  .btn-next:hover { background: #e0b010; transform: translateY(-1px); }
+  .btn-next:hover { background: #e0e0e0; transform: translateY(-1px); }
 
   .error-msg { font-size: 12px; color: #e07070; margin-left: auto; display: none; }
   .error-msg.show { display: block; }
 
   /* Result */
   .result { text-align: center; padding: 0.5rem 0; }
-  .result-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: #f5c518; letter-spacing: 2px; margin-bottom: 0.4rem; }
+  .result-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: #ffffff; letter-spacing: 2px; margin-bottom: 0.4rem; }
   .result-sub { font-size: 0.9rem; color: #7aaa8a; line-height: 1.6; margin-bottom: 1.75rem; }
-  .summary { background: #152c1e; border: 1px solid #2a5035; border-radius: 12px; padding: 1rem 1.25rem; text-align: left; }
-  .s-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 0.45rem 0; font-size: 0.82rem; border-bottom: 1px solid #1e3d28; }
+  .summary { background: #004020; border: 1px solid #2a6040; border-radius: 12px; padding: 1rem 1.25rem; text-align: left; }
+  .s-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 0.45rem 0; font-size: 0.82rem; border-bottom: 1px solid #1e4d2a; }
   .s-row:last-child { border-bottom: none; }
-  .s-lbl { color: #5a8a6a; white-space: nowrap; flex-shrink: 0; }
+  .s-lbl { color: #7aaa8a; white-space: nowrap; flex-shrink: 0; }
   .s-val { color: #e8f5ec; font-weight: 600; text-align: right; }
-  .btn-restart { margin-top: 1.5rem; background: transparent; border: 1.5px solid #2a5035; color: #5a8a6a; border-radius: 8px; padding: 0.55rem 1.4rem; font-size: 0.85rem; font-family: 'Inter', sans-serif; cursor: pointer; transition: border-color 0.15s, color 0.15s; }
-  .btn-restart:hover { border-color: #f5c518; color: #f5c518; }
+  .btn-restart { margin-top: 1.5rem; background: transparent; border: 1.5px solid #2a6040; color: #7aaa8a; border-radius: 8px; padding: 0.55rem 1.4rem; font-size: 0.85rem; font-family: 'Inter', sans-serif; cursor: pointer; transition: border-color 0.15s, color 0.15s; }
+  .btn-restart:hover { border-color: #ffffff; color: #ffffff; }
 
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   .animate-in { animation: fadeIn 0.28s ease both; }
@@ -184,8 +184,32 @@
 <div id="questionnaire-wrap">
   <div class="brand">GRINDLAB V10</div>
   <div class="card" id="card">
-    <div class="progress-wrap" id="pbar"></div>
-    <div id="content"></div>
+    <div class="progress-wrap" id="pbar"><div class="pb active"></div><div class="pb"></div><div class="pb"></div></div>
+    <div id="content"><div class="step-label animate-in">Étape 1 sur 3</div><div class="animate-in" style="animation-delay:0s"><div class="q-title">As-tu un PC portable ou fixe à disposition ?</div><div class="options" id="opts_pc"><button class="opt" onclick="pick(&#39;pc&#39;,&#39;J\&#39;ai un PC portable&#39;,this)">
+        <span class="opt-badge">1</span>
+        <span class="opt-text">J'ai un PC portable</span>
+      </button><button class="opt" onclick="pick(&#39;pc&#39;,&#39;J\&#39;ai un PC fixe&#39;,this)">
+        <span class="opt-badge">2</span>
+        <span class="opt-text">J'ai un PC fixe</span>
+      </button></div></div><div class="q-divider"></div><div class="animate-in" style="animation-delay:0.06s"><div class="q-title">Aujourd'hui, quelle situation te correspond le plus dans les Lives ?</div><div class="options" id="opts_niveau_live"><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;Je n\&#39;ai pas suffisamment de connaissances pour savoir si cela m\&#39;intéresse&#39;,this)">
+        <span class="opt-badge">0</span>
+        <span class="opt-text">Je n'ai pas suffisamment de connaissances pour savoir si cela m'intéresse</span>
+      </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;Je viens de découvrir les lives interactifs et je veux me lancer&#39;,this)">
+        <span class="opt-badge">1</span>
+        <span class="opt-text">Je viens de découvrir les lives interactifs et je veux me lancer</span>
+      </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai quelques connaissances dans le domaine mais je n\&#39;ai jamais commencé&#39;,this)">
+        <span class="opt-badge">2</span>
+        <span class="opt-text">J'ai quelques connaissances dans le domaine mais je n'ai jamais commencé</span>
+      </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai déjà lancé 1 live mais je ne comprends pas comment faire de l\&#39;interactif&#39;,this)">
+        <span class="opt-badge">3</span>
+        <span class="opt-text">J'ai déjà lancé 1 live mais je ne comprends pas comment faire de l'interactif</span>
+      </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai déjà fait plusieurs lives mais j\&#39;ai peu ou pas assez de visibilité&#39;,this)">
+        <span class="opt-badge">4</span>
+        <span class="opt-text">J'ai déjà fait plusieurs lives mais j'ai peu ou pas assez de visibilité</span>
+      </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai de la visibilité mais je génère peu d\&#39;argent — je veux scaler et réussir davantage&#39;,this)">
+        <span class="opt-badge">5</span>
+        <span class="opt-text">J'ai de la visibilité mais je génère peu d'argent — je veux scaler et réussir davantage</span>
+      </button></div></div><div class="nav animate-in" style="animation-delay:0.15s"><span class="error-msg" id="errmsg">Réponds à toutes les questions</span><button class="btn-next" onclick="nextPage()">Continuer →</button></div></div>
   </div>
 </div>
 
@@ -194,7 +218,7 @@ function ouvrirQuestionnaire() {
   const wrap = document.getElementById('questionnaire-wrap');
   wrap.style.display = 'block';
   document.getElementById('btn-postule').textContent = '✓ Formulaire ouvert ci-dessous';
-  document.getElementById('btn-postule').style.background = '#2a5035';
+  document.getElementById('btn-postule').style.background = '#2a6040';
   document.getElementById('btn-postule').style.color = '#b8d8c4';
   document.getElementById('btn-postule').style.boxShadow = 'none';
   document.getElementById('btn-postule').disabled = true;
@@ -346,9 +370,9 @@ function renderResult() {
 function restart() {
   current = 0; answers = {};
   document.getElementById('btn-postule').textContent = 'POSTULE MAINTENANT';
-  document.getElementById('btn-postule').style.background = '#f5c518';
-  document.getElementById('btn-postule').style.color = '#0b1a0f';
-  document.getElementById('btn-postule').style.boxShadow = '0 4px 20px rgba(245,197,24,0.3)';
+  document.getElementById('btn-postule').style.background = '#ffffff';
+  document.getElementById('btn-postule').style.color = '#004526';
+  document.getElementById('btn-postule').style.boxShadow = '0 4px 20px rgba(255,255,255,0.2)';
   document.getElementById('btn-postule').disabled = false;
   document.getElementById('questionnaire-wrap').style.display = 'none';
   renderPage();
@@ -356,5 +380,6 @@ function restart() {
 
 renderPage();
 </script>
-</body>
-</html>
+
+
+</body></html>
