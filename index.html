@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Postule – GRINDLAB V10</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0b1f13;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+  }
+
+  /* ── SECTION BOUTON ── */
+  #hero {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.1rem;
+    color: #b8d8c4;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-sub {
+    font-size: 0.85rem;
+    color: #5a8a6a;
+    margin-bottom: 2rem;
+  }
+
+  #btn-postule {
+    background: #f5c518;
+    color: #0b1a0f;
+    border: none;
+    border-radius: 10px;
+    padding: 0.85rem 2.4rem;
+    font-size: 1rem;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
+    box-shadow: 0 4px 20px rgba(245,197,24,0.3);
+    text-transform: uppercase;
+  }
+  #btn-postule:hover {
+    background: #e0b010;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(245,197,24,0.4);
+  }
+
+  .hero-hint {
+    font-size: 12px;
+    color: #3a6048;
+    margin-top: 0.75rem;
+  }
+
+  /* ── QUESTIONNAIRE (caché par défaut) ── */
+  #questionnaire-wrap {
+    display: none;
+    width: 100%;
+    max-width: 560px;
+    margin-top: 2rem;
+    animation: fadeUp 0.35s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    color: #f5c518;
+    text-align: center;
+    margin-bottom: 1.2rem;
+    opacity: 0.8;
+  }
+
+  .card {
+    background: #0f2419;
+    border: 1px solid #2a5035;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+  }
+
+  .progress-wrap { display: flex; gap: 8px; margin-bottom: 0.6rem; }
+  .pb { flex: 1; height: 3px; border-radius: 2px; background: #1e3d28; transition: background 0.4s; }
+  .pb.done { background: #f5c518; }
+  .pb.active { background: #f5c51888; }
+
+  .step-label { font-size: 11px; color: #5a8a6a; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1.5rem; }
+
+  .q-title { font-size: 1rem; font-weight: 700; color: #e8f5ec; line-height: 1.45; margin-bottom: 0.9rem; }
+
+  .options { display: flex; flex-direction: column; gap: 7px; }
+
+  .opt {
+    display: flex; align-items: flex-start; gap: 10px;
+    background: #152c1e; border: 1.5px solid #2a5035; border-radius: 10px;
+    padding: 0.7rem 1rem; cursor: pointer;
+    transition: border-color 0.18s, background 0.18s, transform 0.12s;
+    text-align: left; width: 100%; outline: none;
+  }
+  .opt:hover { border-color: #f5c518; background: #1c3826; transform: translateX(2px); }
+  .opt.selected { border-color: #f5c518; background: #1c3d26; }
+
+  .opt-badge {
+    flex-shrink: 0; width: 24px; height: 24px; border-radius: 6px;
+    background: #1e4028; border: 1px solid #3a6048;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; color: #f5c518; margin-top: 1px;
+    transition: background 0.18s, border-color 0.18s;
+  }
+  .opt.selected .opt-badge { background: #f5c518; color: #0f2419; border-color: #f5c518; }
+  .opt-text { font-size: 0.875rem; color: #b8d8c4; line-height: 1.45; }
+  .opt.selected .opt-text { color: #fff; }
+
+  .q-divider { height: 1px; background: #1e3d28; margin: 1.5rem 0; }
+
+  .nav {
+    display: flex; align-items: center; gap: 10px;
+    margin-top: 1.75rem; padding-top: 1.5rem;
+    border-top: 1px solid #1e3d28;
+  }
+  .btn-back {
+    background: transparent; border: 1.5px solid #2a5035; color: #5a8a6a;
+    border-radius: 8px; padding: 0.6rem 1rem; font-size: 0.875rem;
+    font-family: 'Inter', sans-serif; cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .btn-back:hover { border-color: #f5c518; color: #f5c518; }
+
+  .btn-next {
+    background: #f5c518; color: #0b1a0f; border: none; border-radius: 8px;
+    padding: 0.65rem 1.6rem; font-size: 0.9rem; font-weight: 800;
+    font-family: 'Inter', sans-serif; letter-spacing: 0.5px; cursor: pointer;
+    transition: background 0.15s, transform 0.1s; margin-left: auto;
+  }
+  .btn-next:hover { background: #e0b010; transform: translateY(-1px); }
+
+  .error-msg { font-size: 12px; color: #e07070; margin-left: auto; display: none; }
+  .error-msg.show { display: block; }
+
+  /* Result */
+  .result { text-align: center; padding: 0.5rem 0; }
+  .result-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: #f5c518; letter-spacing: 2px; margin-bottom: 0.4rem; }
+  .result-sub { font-size: 0.9rem; color: #7aaa8a; line-height: 1.6; margin-bottom: 1.75rem; }
+  .summary { background: #152c1e; border: 1px solid #2a5035; border-radius: 12px; padding: 1rem 1.25rem; text-align: left; }
+  .s-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 0.45rem 0; font-size: 0.82rem; border-bottom: 1px solid #1e3d28; }
+  .s-row:last-child { border-bottom: none; }
+  .s-lbl { color: #5a8a6a; white-space: nowrap; flex-shrink: 0; }
+  .s-val { color: #e8f5ec; font-weight: 600; text-align: right; }
+  .btn-restart { margin-top: 1.5rem; background: transparent; border: 1.5px solid #2a5035; color: #5a8a6a; border-radius: 8px; padding: 0.55rem 1.4rem; font-size: 0.85rem; font-family: 'Inter', sans-serif; cursor: pointer; transition: border-color 0.15s, color 0.15s; }
+  .btn-restart:hover { border-color: #f5c518; color: #f5c518; }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .animate-in { animation: fadeIn 0.28s ease both; }
+</style>
+</head>
+<body>
+
+<!-- SECTION BOUTON -->
+<div id="hero">
+  <p class="hero-title">Postule pour travailler avec moi en dessous</p>
+  <p class="hero-sub">Et rejoins les +600 managers que j'ai accompagnés</p>
+  <button id="btn-postule" onclick="ouvrirQuestionnaire()">POSTULE MAINTENANT</button>
+  <p class="hero-hint">⏱ Prend 30 secondes</p>
+</div>
+
+<!-- QUESTIONNAIRE (caché au départ) -->
+<div id="questionnaire-wrap">
+  <div class="brand">GRINDLAB V10</div>
+  <div class="card" id="card">
+    <div class="progress-wrap" id="pbar"></div>
+    <div id="content"></div>
+  </div>
+</div>
+
+<script>
+function ouvrirQuestionnaire() {
+  const wrap = document.getElementById('questionnaire-wrap');
+  wrap.style.display = 'block';
+  document.getElementById('btn-postule').textContent = '✓ Formulaire ouvert ci-dessous';
+  document.getElementById('btn-postule').style.background = '#2a5035';
+  document.getElementById('btn-postule').style.color = '#b8d8c4';
+  document.getElementById('btn-postule').style.boxShadow = 'none';
+  document.getElementById('btn-postule').disabled = true;
+  setTimeout(() => wrap.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+}
+
+const pages = [
+  {
+    label: "Étape 1 sur 3",
+    questions: [
+      {
+        key: "pc",
+        title: "As-tu un PC portable ou fixe à disposition ?",
+        options: [
+          { num: "1", text: "J'ai un PC portable" },
+          { num: "2", text: "J'ai un PC fixe" }
+        ]
+      },
+      {
+        key: "niveau_live",
+        title: "Aujourd'hui, quelle situation te correspond le plus dans les Lives ?",
+        options: [
+          { num: "0", text: "Je n'ai pas suffisamment de connaissances pour savoir si cela m'intéresse" },
+          { num: "1", text: "Je viens de découvrir les lives interactifs et je veux me lancer" },
+          { num: "2", text: "J'ai quelques connaissances dans le domaine mais je n'ai jamais commencé" },
+          { num: "3", text: "J'ai déjà lancé 1 live mais je ne comprends pas comment faire de l'interactif" },
+          { num: "4", text: "J'ai déjà fait plusieurs lives mais j'ai peu ou pas assez de visibilité" },
+          { num: "5", text: "J'ai de la visibilité mais je génère peu d'argent — je veux scaler et réussir davantage" }
+        ]
+      }
+    ]
+  },
+  {
+    label: "Étape 2 sur 3",
+    questions: [
+      {
+        key: "situation_pro",
+        title: "Quelle est ta situation professionnelle actuelle ?",
+        options: [
+          { num: "A", text: "Étudiant(e)" },
+          { num: "B", text: "Sans emploi" },
+          { num: "C", text: "Salarié(e)" },
+          { num: "D", text: "Entrepreneur(e)" },
+          { num: "E", text: "Autre" }
+        ]
+      }
+    ]
+  },
+  {
+    label: "Étape 3 sur 3",
+    questions: [
+      {
+        key: "budget",
+        title: "Combien es-tu prêt(e) à investir AUJOURD'HUI pour atteindre tes objectifs ?",
+        options: [
+          { num: "💡", text: "300€ – 1 000€ · Je comprends l'importance d'investir dans mes connaissances" },
+          { num: "🚀", text: "1 000€ – 2 000€ · Je veux les meilleures infos et être accompagné(e) par Jafar, Aztro et son équipe" },
+          { num: "🔥", text: "+2 000€ · Je suis prêt(e) à m'investir activement et je souhaite réussir plus que tout" }
+        ]
+      }
+    ]
+  }
+];
+
+const labels = { pc: "Équipement", niveau_live: "Niveau Lives", situation_pro: "Situation pro", budget: "Budget" };
+let current = 0;
+let answers = {};
+
+function renderPbar() {
+  document.getElementById('pbar').innerHTML = pages.map((_, i) => {
+    let cls = 'pb';
+    if (i < current) cls += ' done';
+    else if (i === current) cls += ' active';
+    return `<div class="${cls}"></div>`;
+  }).join('');
+}
+
+function renderPage() {
+  if (current >= pages.length) { renderResult(); return; }
+  renderPbar();
+  const page = pages[current];
+  let html = `<div class="step-label animate-in">${page.label}</div>`;
+  page.questions.forEach((q, qi) => {
+    if (qi > 0) html += `<div class="q-divider"></div>`;
+    html += `<div class="animate-in" style="animation-delay:${qi * 0.06}s">`;
+    html += `<div class="q-title">${q.title}</div>`;
+    html += `<div class="options" id="opts_${q.key}">`;
+    q.options.forEach(o => {
+      const sel = answers[q.key] === o.text ? ' selected' : '';
+      const safe = o.text.replace(/'/g, "\\'");
+      html += `<button class="opt${sel}" onclick="pick('${q.key}','${safe}',this)">
+        <span class="opt-badge">${o.num}</span>
+        <span class="opt-text">${o.text}</span>
+      </button>`;
+    });
+    html += `</div></div>`;
+  });
+  html += `<div class="nav animate-in" style="animation-delay:0.15s">`;
+  if (current > 0) html += `<button class="btn-back" onclick="goBack()">← Retour</button>`;
+  html += `<span class="error-msg" id="errmsg">Réponds à toutes les questions</span>`;
+  const isLast = current === pages.length - 1;
+  html += `<button class="btn-next" onclick="nextPage()">${isLast ? 'Envoyer ✓' : 'Continuer →'}</button>`;
+  html += `</div>`;
+  document.getElementById('content').innerHTML = html;
+}
+
+function pick(key, val, btn) {
+  answers[key] = val;
+  document.getElementById('opts_' + key).querySelectorAll('.opt').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  const err = document.getElementById('errmsg');
+  if (err) err.classList.remove('show');
+}
+
+function allAnswered() {
+  return pages[current].questions.every(q => answers[q.key] !== undefined);
+}
+
+function nextPage() {
+  if (!allAnswered()) {
+    const err = document.getElementById('errmsg');
+    if (err) err.classList.add('show');
+    return;
+  }
+  current++;
+  renderPage();
+  document.getElementById('questionnaire-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function goBack() {
+  if (current > 0) { current--; renderPage(); }
+}
+
+function renderResult() {
+  renderPbar();
+  let rows = Object.entries(answers).map(([k, v]) =>
+    `<div class="s-row"><span class="s-lbl">${labels[k] || k}</span><span class="s-val">${v}</span></div>`
+  ).join('');
+  document.getElementById('content').innerHTML = `
+    <div class="result animate-in">
+      <div style="font-size:2.5rem;margin-bottom:.75rem">✅</div>
+      <div class="result-title">Merci !</div>
+      <div class="result-sub">Tes réponses ont bien été enregistrées.<br>L'équipe Grindlab va te contacter très rapidement.</div>
+      <div class="summary">${rows}</div>
+      <button class="btn-restart" onclick="restart()">Recommencer</button>
+    </div>`;
+}
+
+function restart() {
+  current = 0; answers = {};
+  document.getElementById('btn-postule').textContent = 'POSTULE MAINTENANT';
+  document.getElementById('btn-postule').style.background = '#f5c518';
+  document.getElementById('btn-postule').style.color = '#0b1a0f';
+  document.getElementById('btn-postule').style.boxShadow = '0 4px 20px rgba(245,197,24,0.3)';
+  document.getElementById('btn-postule').disabled = false;
+  document.getElementById('questionnaire-wrap').style.display = 'none';
+  renderPage();
+}
+
+renderPage();
+</script>
+</body>
+</html>
