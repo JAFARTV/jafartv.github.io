@@ -1,655 +1,714 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/darke/Downloads/index_8.html -->
-<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Postule – GRINDLAB V10</title>
-<link href="./Postule – GRINDLAB V10_files/css2" rel="stylesheet">
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GRINDLAB V10 – De 0 à 3000€ grâce aux Lives TikTok</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --green-bg: #004526;
-    --green-card: #003a1f;
-    --green-deep: #002e18;
-    --green-border: #1a5c35;
-    --green-border-light: #2a7a4a;
-    --green-muted: #5a9a70;
-    --green-soft: #7aaa8a;
-    --text-main: #e8f5ec;
-    --text-dim: #b8d8c4;
-    --white: #ffffff;
-    --white-dim: rgba(255,255,255,0.13);
-    --white-hover: rgba(255,255,255,0.07);
-  }
+:root {
+  --bg: #004526;
+  --bg-dark: #002e18;
+  --bg-card: #003a1f;
+  --border: #1a5c35;
+  --border-light: #2a7a4a;
+  --muted: #5a9a70;
+  --soft: #7aaa8a;
+  --text: #e8f5ec;
+  --text-dim: #b8d8c4;
+  --white: #ffffff;
+  --white-dim: rgba(255,255,255,0.12);
+  --white-hover: rgba(255,255,255,0.07);
+}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--green-bg);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 1rem;
-  }
+html { scroll-behavior: smooth; }
 
-  #hero {
-    text-align: center;
-    padding: 2.5rem 1.5rem;
-    max-width: 520px;
-  }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-  .hero-badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: var(--green-soft);
-    border: 1px solid var(--green-border);
-    border-radius: 20px;
-    padding: 0.3rem 0.9rem;
-    margin-bottom: 1.4rem;
-  }
+/* ═══ NAV ═══ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: rgba(0,69,38,0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 4px;
+  color: var(--white);
+}
+.nav-cta {
+  background: var(--white);
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  padding: 0.55rem 1.4rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.15s, transform 0.12s;
+}
+.nav-cta:hover { background: #e8e8e8; transform: translateY(-1px); }
 
-  .hero-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.6rem;
-    color: var(--white);
-    line-height: 1.1;
-    letter-spacing: 1px;
-    margin-bottom: 0.75rem;
-  }
+/* ═══ HERO ═══ */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 7rem 1.5rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 600px;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
 
-  .hero-sub {
-    font-size: 1rem;
-    color: var(--green-soft);
-    margin-bottom: 2.2rem;
-    line-height: 1.5;
-  }
-  .hero-sub strong { color: var(--white); font-weight: 700; }
+/* Badge neon blanc */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.8);
+  border-radius: 20px;
+  padding: 0.35rem 1rem;
+  margin-bottom: 1.8rem;
+  animation: fadeUp 0.6s ease both;
+  box-shadow: 0 0 10px rgba(255,255,255,0.25), 0 0 24px rgba(255,255,255,0.1), inset 0 0 10px rgba(255,255,255,0.04);
+  text-shadow: 0 0 8px rgba(255,255,255,0.6);
+}
 
-  #btn-postule {
-    background: var(--white);
-    color: var(--green-bg);
-    border: none;
-    border-radius: 12px;
-    padding: 1.05rem 3rem;
-    font-size: 1.05rem;
-    font-weight: 800;
-    font-family: 'DM Sans', sans-serif;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    transition: background 0.15s, transform 0.12s, box-shadow 0.2s;
-    box-shadow: 0 6px 30px rgba(255,255,255,0.18);
-    text-transform: uppercase;
-  }
-  #btn-postule:hover {
-    background: #e8e8e8;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 36px rgba(255,255,255,0.25);
-  }
+/* Titre hero — propre et impactant */
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  color: var(--white);
+  line-height: 1.0;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.4rem;
+  max-width: 760px;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+.hero-title .highlight {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255,255,255,0.7);
+}
+.hero-title-sub {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 3px;
+  margin-bottom: 1.2rem;
+  animation: fadeUp 0.6s 0.15s ease both;
+}
 
-  .hero-hint {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--white);
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 30px;
-    padding: 0.4rem 1rem;
-    margin-top: 1.2rem;
-    letter-spacing: 0.3px;
-  }
+.hero-sub {
+  font-size: 1rem;
+  color: var(--soft);
+  margin-bottom: 2.8rem;
+  max-width: 480px;
+  line-height: 1.65;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
 
-  #questionnaire-wrap {
-    display: none;
-    width: 100%;
-    max-width: 580px;
-    margin-top: 2rem;
-    animation: fadeUp 0.4s ease both;
-  }
+/* VIDEO */
+.video-wrap {
+  width: 100%;
+  max-width: 660px;
+  margin: 0 auto 2.8rem;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: var(--bg-dark);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+}
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+.video-placeholder {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+  background: var(--bg-dark);
+}
+.video-placeholder-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 2px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.video-placeholder:hover .video-placeholder-icon {
+  background: rgba(255,255,255,0.16);
+  transform: scale(1.08);
+}
+.video-placeholder-text { font-size: 0.85rem; color: var(--muted); font-style: italic; }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+/* CTA hero */
+.hero-cta-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+.btn-hero {
+  background: var(--white);
+  color: var(--bg);
+  border: none;
+  border-radius: 12px;
+  padding: 1.1rem 3.2rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 6px 30px rgba(255,255,255,0.18);
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-hero:hover { background: #ececec; transform: translateY(-3px); box-shadow: 0 12px 40px rgba(255,255,255,0.24); }
 
-  .brand {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1rem;
-    letter-spacing: 4px;
-    color: var(--white);
-    text-align: center;
-    margin-bottom: 1.2rem;
-    opacity: 0.4;
-  }
+.hero-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--white);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 30px;
+  padding: 0.35rem 0.9rem;
+}
 
-  .card {
-    background: var(--green-card);
-    border: 1px solid var(--green-border);
-    border-radius: 20px;
-    padding: 2.4rem;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.55);
-  }
+/* ═══ PROOF BAR ═══ */
+.proof-bar {
+  background: var(--white);
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.proof-item { text-align: center; }
+.proof-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  color: var(--bg);
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.proof-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #3a6a4a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.25rem;
+}
+.proof-divider { width: 1px; height: 40px; background: rgba(0,69,38,0.15); }
 
-  .progress-wrap { display: flex; gap: 6px; margin-bottom: 2rem; }
-  .pb { flex: 1; height: 3px; border-radius: 3px; background: var(--green-deep); transition: background 0.4s; }
-  .pb.done { background: var(--white); }
-  .pb.active { background: rgba(255,255,255,0.35); }
+/* ═══ CAROUSEL ═══ */
+#resultats { padding: 5rem 0; overflow: hidden; }
 
-  .step-label {
-    font-size: 10.5px;
-    color: var(--green-soft);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
+.section-label {
+  text-align: center;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 0.5rem;
+}
+.section-title {
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--white);
+  letter-spacing: 1px;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
 
-  .q-block { margin-bottom: 0.5rem; }
+.carousel-track-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.carousel-track-wrap::before,
+.carousel-track-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 140px;
+  z-index: 2;
+  pointer-events: none;
+}
+.carousel-track-wrap::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+.carousel-track-wrap::after  { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
 
-  .q-title {
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: var(--white);
-    line-height: 1.4;
-    margin-bottom: 1.1rem;
-    letter-spacing: -0.3px;
-    border-left: 3px solid rgba(255,255,255,0.35);
-    padding-left: 0.85rem;
-  }
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: scrollLeft 35s linear infinite;
+}
+.carousel-track:hover { animation-play-state: paused; }
 
-  .q-divider {
-    height: 1px;
-    background: var(--green-border);
-    margin: 1.8rem 0;
-    opacity: 0.5;
-  }
+@keyframes scrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
 
-  .options { display: flex; flex-direction: column; gap: 9px; }
+.carousel-card {
+  width: 220px;
+  height: 390px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  background: var(--bg-card);
+}
+.carousel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
 
-  .opt {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    background: rgba(255,255,255,0.03);
-    border: 1.5px solid var(--green-border);
-    border-radius: 12px;
-    padding: 0.9rem 1.15rem;
-    cursor: pointer;
-    transition: border-color 0.18s, background 0.18s, transform 0.15s, box-shadow 0.18s;
-    text-align: left;
-    width: 100%;
-    outline: none;
-  }
-  .opt:hover {
-    border-color: rgba(255,255,255,0.6);
-    background: rgba(255,255,255,0.09);
-    transform: translateX(4px);
-    box-shadow: 0 0 0 1px rgba(255,255,255,0.08);
-  }
-  .opt.selected {
-    border-color: var(--white);
-    background: rgba(255,255,255,0.14);
-    box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
-  }
+/* ═══ QUESTIONNAIRE ═══ */
+#postuler {
+  padding: 5rem 1rem 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section-intro { text-align: center; margin-bottom: 2.5rem; }
+.questionnaire-wrap { width: 100%; max-width: 580px; }
+.brand-q {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 1.2rem;
+  opacity: 0.4;
+}
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.4rem;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.55);
+}
+.progress-wrap { display: flex; gap: 6px; margin-bottom: 2rem; }
+.pb { flex: 1; height: 3px; border-radius: 3px; background: var(--bg-dark); transition: background 0.4s; }
+.pb.done { background: var(--white); }
+.pb.active { background: rgba(255,255,255,0.35); }
+.step-label { font-size: 10.5px; color: var(--soft); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; font-weight: 600; }
+.q-block { margin-bottom: 0.5rem; }
+.q-title { font-size: 1.2rem; font-weight: 800; color: var(--white); line-height: 1.4; margin-bottom: 1.1rem; border-left: 3px solid rgba(255,255,255,0.35); padding-left: 0.85rem; }
+.q-divider { height: 1px; background: var(--border); margin: 1.8rem 0; opacity: 0.5; }
+.options { display: flex; flex-direction: column; gap: 9px; }
+.opt {
+  display: flex; align-items: center; gap: 13px;
+  background: rgba(255,255,255,0.03);
+  border: 1.5px solid var(--border);
+  border-radius: 12px; padding: 0.9rem 1.15rem;
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s, transform 0.15s, box-shadow 0.18s;
+  text-align: left; width: 100%; outline: none;
+}
+.opt:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.09); transform: translateX(4px); box-shadow: 0 0 0 1px rgba(255,255,255,0.08); }
+.opt.selected { border-color: var(--white); background: rgba(255,255,255,0.14); box-shadow: 0 0 0 1px rgba(255,255,255,0.1); }
+.opt-badge { flex-shrink: 0; width: 28px; height: 28px; border-radius: 7px; background: var(--bg-dark); border: 1.5px solid var(--border-light); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; color: var(--soft); transition: background 0.18s, border-color 0.18s, color 0.18s; }
+.opt:hover .opt-badge { border-color: rgba(255,255,255,0.5); color: var(--white); }
+.opt.selected .opt-badge { background: var(--white); color: var(--bg); border-color: var(--white); }
+.opt-text { font-size: 0.92rem; color: var(--text-dim); line-height: 1.45; font-weight: 500; transition: color 0.15s; }
+.opt:hover .opt-text { color: var(--white); }
+.opt.selected .opt-text { color: var(--white); font-weight: 700; }
+.text-field-wrap { margin-bottom: 0.5rem; }
+.text-field { width: 100%; background: rgba(255,255,255,0.03); border: 1.5px solid var(--border); border-radius: 10px; padding: 0.85rem 1rem; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; font-weight: 500; color: var(--white); outline: none; transition: border-color 0.18s, background 0.18s; }
+.text-field::placeholder { color: rgba(122,170,138,0.45); font-style: italic; }
+.text-field:focus { border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.07); }
+.field-hint { font-size: 11.5px; color: var(--muted); margin-top: 0.45rem; font-style: italic; }
+.nav { display: flex; align-items: center; gap: 10px; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.btn-back { background: transparent; border: 1.5px solid var(--border); color: var(--soft); border-radius: 9px; padding: 0.65rem 1.1rem; font-size: 0.875rem; font-family: 'DM Sans', sans-serif; font-weight: 600; cursor: pointer; transition: border-color 0.15s, color 0.15s; }
+.btn-back:hover { border-color: var(--white); color: var(--white); }
+.btn-next { background: var(--white); color: var(--bg); border: none; border-radius: 9px; padding: 0.7rem 1.8rem; font-size: 0.9rem; font-weight: 800; font-family: 'DM Sans', sans-serif; letter-spacing: 0.5px; cursor: pointer; transition: background 0.15s, transform 0.1s; margin-left: auto; }
+.btn-next:hover { background: #e8e8e8; transform: translateY(-1px); }
+.btn-next:disabled { background: rgba(255,255,255,0.3); cursor: not-allowed; transform: none; }
+.error-msg { font-size: 12px; color: #e07070; margin-left: auto; display: none; }
+.error-msg.show { display: block; }
+.result { text-align: center; padding: 0.5rem 0; }
+.result-icon { font-size: 2.8rem; margin-bottom: 1rem; }
+.result-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: var(--white); letter-spacing: 2px; margin-bottom: 0.5rem; }
+.result-sub { font-size: 0.95rem; color: var(--soft); line-height: 1.65; margin-bottom: 2rem; }
+.summary { background: var(--bg-dark); border: 1px solid var(--border); border-radius: 14px; padding: 1.1rem 1.4rem; text-align: left; }
+.s-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 0.55rem 0; font-size: 0.85rem; border-bottom: 1px solid var(--border); }
+.s-row:last-child { border-bottom: none; }
+.s-lbl { color: var(--soft); white-space: nowrap; flex-shrink: 0; font-weight: 500; }
+.s-val { color: var(--text); font-weight: 700; text-align: right; max-width: 65%; word-break: break-word; }
+.btn-restart { margin-top: 1.5rem; background: transparent; border: 1.5px solid var(--border); color: var(--soft); border-radius: 9px; padding: 0.6rem 1.5rem; font-size: 0.875rem; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: border-color 0.15s, color 0.15s; font-weight: 600; }
+.btn-restart:hover { border-color: var(--white); color: var(--white); }
 
-  .opt-badge {
-    flex-shrink: 0;
-    width: 28px;
-    height: 28px;
-    border-radius: 7px;
-    background: var(--green-deep);
-    border: 1.5px solid var(--green-border-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 11px;
-    font-weight: 800;
-    color: var(--green-soft);
-    transition: background 0.18s, border-color 0.18s, color 0.18s;
-  }
-  .opt:hover .opt-badge { border-color: rgba(255,255,255,0.5); color: var(--white); }
-  .opt.selected .opt-badge { background: var(--white); color: var(--green-bg); border-color: var(--white); }
+/* ═══ FOOTER ═══ */
+footer { border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; font-size: 0.8rem; color: var(--muted); }
 
-  .opt-text {
-    font-size: 0.92rem;
-    color: var(--text-dim);
-    line-height: 1.45;
-    font-weight: 500;
-    transition: color 0.15s;
-  }
-  .opt:hover .opt-text { color: var(--white); }
-  .opt.selected .opt-text { color: var(--white); font-weight: 700; }
+/* ═══ ANIMATIONS ═══ */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: fadeIn 0.28s ease both; }
 
-  .text-field-wrap { margin-bottom: 0.5rem; }
-
-  .text-field {
-    width: 100%;
-    background: rgba(255,255,255,0.03);
-    border: 1.5px solid var(--green-border);
-    border-radius: 10px;
-    padding: 0.85rem 1rem;
-    font-size: 0.95rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    color: var(--white);
-    outline: none;
-    transition: border-color 0.18s, background 0.18s;
-  }
-  .text-field::placeholder { color: rgba(122,170,138,0.45); font-style: italic; }
-  .text-field:focus {
-    border-color: rgba(255,255,255,0.55);
-    background: rgba(255,255,255,0.07);
-  }
-
-  .field-hint {
-    font-size: 11.5px;
-    color: var(--green-muted);
-    margin-top: 0.45rem;
-    font-style: italic;
-  }
-
-  .nav {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--green-border);
-  }
-
-  .btn-back {
-    background: transparent;
-    border: 1.5px solid var(--green-border);
-    color: var(--green-soft);
-    border-radius: 9px;
-    padding: 0.65rem 1.1rem;
-    font-size: 0.875rem;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    cursor: pointer;
-    transition: border-color 0.15s, color 0.15s;
-  }
-  .btn-back:hover { border-color: var(--white); color: var(--white); }
-
-  .btn-next {
-    background: var(--white);
-    color: var(--green-bg);
-    border: none;
-    border-radius: 9px;
-    padding: 0.7rem 1.8rem;
-    font-size: 0.9rem;
-    font-weight: 800;
-    font-family: 'DM Sans', sans-serif;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: background 0.15s, transform 0.1s;
-    margin-left: auto;
-  }
-  .btn-next:hover { background: #e8e8e8; transform: translateY(-1px); }
-  .btn-next:disabled { background: rgba(255,255,255,0.3); cursor: not-allowed; transform: none; }
-
-  .error-msg { font-size: 12px; color: #e07070; margin-left: auto; display: none; }
-  .error-msg.show { display: block; }
-
-  .result { text-align: center; padding: 0.5rem 0; }
-  .result-icon { font-size: 2.8rem; margin-bottom: 1rem; }
-  .result-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: var(--white); letter-spacing: 2px; margin-bottom: 0.5rem; }
-  .result-sub { font-size: 0.95rem; color: var(--green-soft); line-height: 1.65; margin-bottom: 2rem; }
-  .summary { background: var(--green-deep); border: 1px solid var(--green-border); border-radius: 14px; padding: 1.1rem 1.4rem; text-align: left; }
-  .s-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 0.55rem 0; font-size: 0.85rem; border-bottom: 1px solid var(--green-border); }
-  .s-row:last-child { border-bottom: none; }
-  .s-lbl { color: var(--green-soft); white-space: nowrap; flex-shrink: 0; font-weight: 500; }
-  .s-val { color: var(--text-main); font-weight: 700; text-align: right; max-width: 65%; word-break: break-word; }
-
-  .btn-restart { margin-top: 1.5rem; background: transparent; border: 1.5px solid var(--green-border); color: var(--green-soft); border-radius: 9px; padding: 0.6rem 1.5rem; font-size: 0.875rem; font-family: 'DM Sans', sans-serif; cursor: pointer; transition: border-color 0.15s, color 0.15s; font-weight: 600; }
-  .btn-restart:hover { border-color: var(--white); color: var(--white); }
-
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-  .animate-in { animation: fadeIn 0.28s ease both; }
+@media (max-width: 600px) {
+  nav { padding: 0.85rem 1rem; }
+  .proof-divider { display: none; }
+  .proof-bar { gap: 1.5rem; }
+  .card { padding: 1.6rem; }
+  .carousel-card { width: 180px; height: 320px; }
+}
 </style>
 </head>
 <body>
 
-<div id="hero">
-  <div class="hero-badge">GRINDLAB V10</div>
-  <h1 class="hero-title">Postule pour<br>travailler avec nous</h1>
-  <p class="hero-sub">Rejoins les <strong>+100 élèves</strong> que nous avons accompagnés</p>
-  <button id="btn-postule" onclick="ouvrirQuestionnaire()">POSTULE MAINTENANT</button>
-  <div class="hero-hint">⏱ Seulement 30 secondes — fais-le maintenant</div>
-</div>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">GRINDLAB V10</div>
+  <a href="#postuler" class="nav-cta">Postule maintenant</a>
+</nav>
 
-<div id="questionnaire-wrap">
-  <div class="brand">GRINDLAB V10</div>
-  <div class="card" id="card">
-    <div class="progress-wrap" id="pbar"><div class="pb active"></div><div class="pb"></div><div class="pb"></div><div class="pb"></div><div class="pb"></div></div>
-    <div id="content"><div class="step-label animate-in">Étape 1 sur 5</div><div class="q-block animate-in" style="animation-delay:0s"><div class="q-title">As-tu un PC portable ou fixe à disposition ?</div><div class="options" id="opts_pc"><button class="opt" onclick="pick(&#39;pc&#39;,&#39;J\&#39;ai un PC portable&#39;,this)">
-            <span class="opt-badge">1</span>
-            <span class="opt-text">J'ai un PC portable</span>
-          </button><button class="opt" onclick="pick(&#39;pc&#39;,&#39;J\&#39;ai un PC fixe&#39;,this)">
-            <span class="opt-badge">2</span>
-            <span class="opt-text">J'ai un PC fixe</span>
-          </button></div></div><div class="q-divider"></div><div class="q-block animate-in" style="animation-delay:0.06s"><div class="q-title">Où en es-tu avec les Lives TikTok ?</div><div class="options" id="opts_niveau_live"><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;Je ne sais pas encore si ça m\&#39;intéresse&#39;,this)">
-            <span class="opt-badge">0</span>
-            <span class="opt-text">Je ne sais pas encore si ça m'intéresse</span>
-          </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;Je viens de découvrir les lives interactifs et je veux me lancer&#39;,this)">
-            <span class="opt-badge">1</span>
-            <span class="opt-text">Je viens de découvrir les lives interactifs et je veux me lancer</span>
-          </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai des connaissances mais je n\&#39;ai jamais commencé&#39;,this)">
-            <span class="opt-badge">2</span>
-            <span class="opt-text">J'ai des connaissances mais je n'ai jamais commencé</span>
-          </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai lancé 1 live mais je ne comprends pas l\&#39;interactif&#39;,this)">
-            <span class="opt-badge">3</span>
-            <span class="opt-text">J'ai lancé 1 live mais je ne comprends pas l'interactif</span>
-          </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai fait plusieurs lives mais j\&#39;ai peu de visibilité&#39;,this)">
-            <span class="opt-badge">4</span>
-            <span class="opt-text">J'ai fait plusieurs lives mais j'ai peu de visibilité</span>
-          </button><button class="opt" onclick="pick(&#39;niveau_live&#39;,&#39;J\&#39;ai de la visibilité mais je génère peu d\&#39;argent — je veux scaler&#39;,this)">
-            <span class="opt-badge">5</span>
-            <span class="opt-text">J'ai de la visibilité mais je génère peu d'argent — je veux scaler</span>
-          </button></div></div><div class="nav animate-in" style="animation-delay:0.15s"><span class="error-msg" id="errmsg">Remplis tous les champs</span><button class="btn-next" id="btn-next" onclick="nextPage()">Continuer →</button></div></div>
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-badge">🔥 Programme exclusif · Places limitées</div>
+
+  <h1 class="hero-title">
+    De <span class="highlight">0</span> à <span class="highlight">3000€</span><br>
+    en moins de 90 jours
+  </h1>
+  <div class="hero-title-sub">grâce aux Lives TikTok</div>
+
+  <p class="hero-sub">
+    Regarde la vidéo complète pour découvrir comment nos élèves génèrent des revenus réels depuis chez eux.
+  </p>
+
+  <!-- VIDEO — remplace le bloc placeholder par ton iframe YouTube -->
+  <div class="video-wrap">
+    <div class="video-container" id="videoContainer">
+      <!--
+        YOUTUBE  → <iframe src="https://www.youtube.com/embed/TON_ID" allowfullscreen></iframe>
+        FICHIER  → <video controls><source src="video.mp4" type="video/mp4"></video>
+      -->
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">▶</div>
+        <div class="video-placeholder-text">Remplace ce bloc par ton lien YouTube</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-cta-wrap">
+    <a href="#postuler" class="btn-hero">Postule maintenant</a>
+    <div class="hero-hint">⏱ Seulement 30 secondes — fais-le maintenant</div>
+  </div>
+</section>
+
+<!-- ═══ PROOF BAR ═══ -->
+<div class="proof-bar">
+  <div class="proof-item">
+    <div class="proof-num">+1M€</div>
+    <div class="proof-label">Générés par nos membres</div>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <div class="proof-num">+100</div>
+    <div class="proof-label">Élèves accompagnés</div>
+  </div>
+  <div class="proof-divider"></div>
+  <div class="proof-item">
+    <div class="proof-num">90J</div>
+    <div class="proof-label">Pour faire minimum 3 000€</div>
   </div>
 </div>
 
+<!-- ═══ CAROUSEL RÉSULTATS ═══ -->
+<section id="resultats">
+  <div class="section-label">Preuves & Résultats</div>
+  <div class="section-title">Ce que nos élèves génèrent</div>
+
+  <div class="carousel-track-wrap">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-card"><img src="IMG_4833.jpg" alt="Résultat élève — €601"></div>
+      <div class="carousel-card"><img src="IMG_4834.jpg" alt="Résultat élève — €1 424"></div>
+      <div class="carousel-card"><img src="IMG_4835.jpg" alt="Résultat élève — €3 554"></div>
+      <div class="carousel-card"><img src="IMG_4836.jpg" alt="Résultat élève — €1 676"></div>
+      <div class="carousel-card"><img src="IMG_4837.jpg" alt="Résultat élève — €4 410"></div>
+      <div class="carousel-card"><img src="IMG_4838.jpg" alt="Résultat élève — €5 310"></div>
+      <div class="carousel-card"><img src="IMG_4903.png" alt="Résultat élève — €452"></div>
+      <div class="carousel-card"><img src="IMG_4920.png" alt="Résultat élève — €536"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ QUESTIONNAIRE ═══ -->
+<section id="postuler">
+  <div class="section-intro">
+    <div class="section-label">Candidature</div>
+    <div class="section-title">Postule pour travailler avec nous</div>
+    <p style="color:var(--soft);font-size:0.95rem;margin-top:-1.5rem;">
+      Rejoins les <strong style="color:var(--white)">+100 élèves</strong> que nous avons accompagnés
+    </p>
+  </div>
+
+  <div class="questionnaire-wrap">
+    <div class="brand-q">GRINDLAB V10</div>
+    <div class="card">
+      <div class="progress-wrap" id="pbar"></div>
+      <div id="content"></div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 GRINDLAB V10 · Tous droits réservés</footer>
+
 <script>
-  const FORMSPREE_URL = "https://formspree.io/f/xojykdkb";
+/* Carousel infini */
+(function() {
+  const track = document.getElementById('carouselTrack');
+  if (track) track.innerHTML = track.innerHTML + track.innerHTML;
+})();
 
-  function ouvrirQuestionnaire() {
-    const wrap = document.getElementById('questionnaire-wrap');
-    wrap.style.display = 'block';
-    const btn = document.getElementById('btn-postule');
-    btn.textContent = '✓ Formulaire ouvert ci-dessous';
-    btn.style.background = 'rgba(255,255,255,0.12)';
-    btn.style.color = '#7aaa8a';
-    btn.style.boxShadow = 'none';
-    btn.disabled = true;
-    setTimeout(() => wrap.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+const FORMSPREE_URL = "https://formspree.io/f/xojykdkb";
+
+const pages = [
+  {
+    label: "Étape 1 sur 5",
+    questions: [
+      { key: "pc", type: "options", title: "As-tu un PC portable ou fixe à disposition ?",
+        options: [{ num:"1", text:"J'ai un PC portable" }, { num:"2", text:"J'ai un PC fixe" }] },
+      { key: "niveau_live", type: "options", title: "Où en es-tu avec les Lives TikTok ?",
+        options: [
+          { num:"0", text:"Je ne sais pas encore si ça m'intéresse" },
+          { num:"1", text:"Je viens de découvrir les lives interactifs et je veux me lancer" },
+          { num:"2", text:"J'ai des connaissances mais je n'ai jamais commencé" },
+          { num:"3", text:"J'ai lancé 1 live mais je ne comprends pas l'interactif" },
+          { num:"4", text:"J'ai fait plusieurs lives mais j'ai peu de visibilité" },
+          { num:"5", text:"J'ai de la visibilité mais je génère peu d'argent — je veux scaler" }
+        ]}
+    ]
+  },
+  {
+    label: "Étape 2 sur 5",
+    questions: [
+      { key: "situation_pro", type: "options", title: "Quelle est ta situation professionnelle ?",
+        options: [
+          { num:"A", text:"Étudiant(e)" }, { num:"B", text:"Sans emploi" },
+          { num:"C", text:"Salarié(e)" }, { num:"D", text:"Entrepreneur(e)" }, { num:"E", text:"Autre" }
+        ]}
+    ]
+  },
+  {
+    label: "Étape 3 sur 5",
+    questions: [
+      { key: "budget", type: "options", title: "Combien es-tu prêt(e) à investir aujourd'hui ?",
+        options: [
+          { num:"💡", text:"300€ – 1 000€ · Je comprends l'importance d'investir dans mes connaissances" },
+          { num:"🚀", text:"1 000€ – 2 000€ · Je veux être accompagné(e) par Jafar, Aztro et leur équipe" },
+          { num:"🔥", text:"+2 000€ · Je suis prêt(e) à m'investir pleinement pour réussir" }
+        ]}
+    ]
+  },
+  {
+    label: "Étape 4 sur 5",
+    questions: [
+      { key:"prenom", type:"text", title:"Quel est ton prénom ?", placeholder:"Répondez ici" },
+      { key:"age", type:"options", title:"Quel est ton âge ?",
+        options: [
+          { num:"1", text:"16 – 18 ans" }, { num:"2", text:"18 – 24 ans" },
+          { num:"3", text:"25 – 30 ans" }, { num:"4", text:"+30 ans" }
+        ]}
+    ]
+  },
+  {
+    label: "Étape 5 sur 5",
+    questions: [
+      { key:"telephone", type:"text", title:"Ton numéro de téléphone", placeholder:"Répondez ici" },
+      { key:"discord", type:"text", title:"Ton pseudo Discord", placeholder:"Répondez ici", hint:"Vérifie bien à mettre le bon @votre-pseudo" },
+      { key:"email", type:"text", title:"Ton adresse email", placeholder:"Répondez ici" }
+    ]
   }
+];
 
-  const pages = [
-    {
-      label: "Étape 1 sur 5",
-      questions: [
-        {
-          key: "pc", type: "options",
-          title: "As-tu un PC portable ou fixe à disposition ?",
-          options: [
-            { num: "1", text: "J'ai un PC portable" },
-            { num: "2", text: "J'ai un PC fixe" }
-          ]
-        },
-        {
-          key: "niveau_live", type: "options",
-          title: "Où en es-tu avec les Lives TikTok ?",
-          options: [
-            { num: "0", text: "Je ne sais pas encore si ça m'intéresse" },
-            { num: "1", text: "Je viens de découvrir les lives interactifs et je veux me lancer" },
-            { num: "2", text: "J'ai des connaissances mais je n'ai jamais commencé" },
-            { num: "3", text: "J'ai lancé 1 live mais je ne comprends pas l'interactif" },
-            { num: "4", text: "J'ai fait plusieurs lives mais j'ai peu de visibilité" },
-            { num: "5", text: "J'ai de la visibilité mais je génère peu d'argent — je veux scaler" }
-          ]
-        }
-      ]
-    },
-    {
-      label: "Étape 2 sur 5",
-      questions: [
-        {
-          key: "situation_pro", type: "options",
-          title: "Quelle est ta situation professionnelle ?",
-          options: [
-            { num: "A", text: "Étudiant(e)" },
-            { num: "B", text: "Sans emploi" },
-            { num: "C", text: "Salarié(e)" },
-            { num: "D", text: "Entrepreneur(e)" },
-            { num: "E", text: "Autre" }
-          ]
-        }
-      ]
-    },
-    {
-      label: "Étape 3 sur 5",
-      questions: [
-        {
-          key: "budget", type: "options",
-          title: "Combien es-tu prêt(e) à investir aujourd'hui ?",
-          options: [
-            { num: "💡", text: "300€ – 1 000€ · Je comprends l'importance d'investir dans mes connaissances" },
-            { num: "🚀", text: "1 000€ – 2 000€ · Je veux être accompagné(e) par Jafar, Aztro et leur équipe" },
-            { num: "🔥", text: "+2 000€ · Je suis prêt(e) à m'investir pleinement pour réussir" }
-          ]
-        }
-      ]
-    },
-    {
-      label: "Étape 4 sur 5",
-      questions: [
-        {
-          key: "prenom", type: "text",
-          title: "Quel est ton prénom ?",
-          placeholder: "Répondez ici"
-        },
-        {
-          key: "age", type: "options",
-          title: "Quel est ton âge ?",
-          options: [
-            { num: "1", text: "16 – 18 ans" },
-            { num: "2", text: "18 – 24 ans" },
-            { num: "3", text: "25 – 30 ans" },
-            { num: "4", text: "+30 ans" }
-          ]
-        }
-      ]
-    },
-    {
-      label: "Étape 5 sur 5",
-      questions: [
-        {
-          key: "telephone", type: "text",
-          title: "Ton numéro de téléphone",
-          placeholder: "Répondez ici"
-        },
-        {
-          key: "discord", type: "text",
-          title: "Ton pseudo Discord",
-          placeholder: "Répondez ici",
-          hint: "Vérifie bien à mettre le bon @votre-pseudo"
-        },
-        {
-          key: "email", type: "text",
-          title: "Ton adresse email",
-          placeholder: "Répondez ici"
-        }
-      ]
-    }
-  ];
+const labels = { pc:"Équipement", niveau_live:"Niveau Lives", situation_pro:"Situation pro", budget:"Budget", prenom:"Prénom", age:"Âge", telephone:"Téléphone", discord:"Discord", email:"Email" };
+let current = 0, answers = {};
 
-  const labels = {
-    pc: "Équipement",
-    niveau_live: "Niveau Lives",
-    situation_pro: "Situation pro",
-    budget: "Budget",
-    prenom: "Prénom",
-    age: "Âge",
-    telephone: "Téléphone",
-    discord: "Discord",
-    email: "Email"
-  };
+function renderPbar() {
+  document.getElementById('pbar').innerHTML = pages.map((_,i) => {
+    let cls = 'pb';
+    if (i < current) cls += ' done';
+    else if (i === current) cls += ' active';
+    return `<div class="${cls}"></div>`;
+  }).join('');
+}
 
-  let current = 0;
-  let answers = {};
-
-  function renderPbar() {
-    document.getElementById('pbar').innerHTML = pages.map((_, i) => {
-      let cls = 'pb';
-      if (i < current) cls += ' done';
-      else if (i === current) cls += ' active';
-      return `<div class="${cls}"></div>`;
-    }).join('');
-  }
-
-  function renderPage() {
-    if (current >= pages.length) { renderResult(); return; }
-    renderPbar();
-    const page = pages[current];
-    let html = `<div class="step-label animate-in">${page.label}</div>`;
-
-    page.questions.forEach((q, qi) => {
-      if (qi > 0) html += `<div class="q-divider"></div>`;
-      html += `<div class="q-block animate-in" style="animation-delay:${qi * 0.06}s">`;
-      html += `<div class="q-title">${q.title}</div>`;
-
-      if (q.type === 'text') {
-        html += `<div class="text-field-wrap">
-          <input class="text-field" id="field_${q.key}" type="text"
-            placeholder="${q.placeholder}" value="${answers[q.key] || ''}"
-            oninput="answers['${q.key}'] = this.value" />
-          ${q.hint ? `<div class="field-hint">⚠️ ${q.hint}</div>` : ''}
-        </div>`;
-      } else {
-        html += `<div class="options" id="opts_${q.key}">`;
-        q.options.forEach(o => {
-          const sel = answers[q.key] === o.text ? ' selected' : '';
-          const safe = o.text.replace(/'/g, "\\'");
-          html += `<button class="opt${sel}" onclick="pick('${q.key}','${safe}',this)">
-            <span class="opt-badge">${o.num}</span>
-            <span class="opt-text">${o.text}</span>
-          </button>`;
-        });
-        html += `</div>`;
-      }
-      html += `</div>`;
-    });
-
-    html += `<div class="nav animate-in" style="animation-delay:0.15s">`;
-    if (current > 0) html += `<button class="btn-back" onclick="goBack()">← Retour</button>`;
-    html += `<span class="error-msg" id="errmsg">Remplis tous les champs</span>`;
-    const isLast = current === pages.length - 1;
-    html += `<button class="btn-next" id="btn-next" onclick="nextPage()">${isLast ? 'Envoyer ✓' : 'Continuer →'}</button>`;
-    html += `</div>`;
-
-    document.getElementById('content').innerHTML = html;
-  }
-
-  function pick(key, val, btn) {
-    answers[key] = val;
-    document.getElementById('opts_' + key).querySelectorAll('.opt').forEach(b => b.classList.remove('selected'));
-    btn.classList.add('selected');
-    const err = document.getElementById('errmsg');
-    if (err) err.classList.remove('show');
-  }
-
-  function allAnswered() {
-    for (const q of pages[current].questions) {
-      if (q.type === 'text') {
-        const el = document.getElementById('field_' + q.key);
-        if (el) answers[q.key] = el.value.trim();
-        if (!answers[q.key]) return false;
-      } else {
-        if (!answers[q.key]) return false;
-      }
-    }
-    return true;
-  }
-
-  async function envoyerFormspree() {
-    const data = {
-      Prénom:         answers.prenom       || '-',
-      Âge:            answers.age          || '-',
-      Équipement:     answers.pc           || '-',
-      "Niveau Lives": answers.niveau_live  || '-',
-      "Situation pro":answers.situation_pro|| '-',
-      Budget:         answers.budget       || '-',
-      Téléphone:      answers.telephone    || '-',
-      Discord:        answers.discord      || '-',
-      Email:          answers.email        || '-'
-    };
-
-    const response = await fetch(FORMSPREE_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
-    });
-
-    if (!response.ok) throw new Error('Formspree error');
-  }
-
-  function nextPage() {
-    if (!allAnswered()) {
-      const err = document.getElementById('errmsg');
-      if (err) err.classList.add('show');
-      return;
-    }
-
-    const isLast = current === pages.length - 1;
-
-    if (isLast) {
-      const btn = document.getElementById('btn-next');
-      btn.disabled = true;
-      btn.textContent = 'Envoi en cours…';
-
-      envoyerFormspree()
-        .then(() => {
-          current++;
-          renderPage();
-          document.getElementById('questionnaire-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        })
-        .catch(() => {
-          btn.disabled = false;
-          btn.textContent = 'Envoyer ✓';
-          const errMsg = document.getElementById('errmsg');
-          if (errMsg) {
-            errMsg.textContent = "Erreur d'envoi, réessaie.";
-            errMsg.classList.add('show');
-          }
-        });
-    } else {
-      current++;
-      renderPage();
-      document.getElementById('questionnaire-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  function goBack() {
-    if (current > 0) { current--; renderPage(); }
-  }
-
-  function renderResult() {
-    renderPbar();
-    let rows = Object.entries(answers).map(([k, v]) =>
-      `<div class="s-row"><span class="s-lbl">${labels[k] || k}</span><span class="s-val">${v}</span></div>`
-    ).join('');
-    document.getElementById('content').innerHTML = `
-      <div class="result animate-in">
-        <div class="result-icon">✅</div>
-        <div class="result-title">Merci ${answers.prenom || ''} !</div>
-        <div class="result-sub">Tes réponses ont bien été enregistrées.<br>L'équipe Grindlab va te contacter très rapidement.</div>
-        <div class="summary">${rows}</div>
-        <button class="btn-restart" onclick="restart()">Recommencer</button>
+function renderPage() {
+  if (current >= pages.length) { renderResult(); return; }
+  renderPbar();
+  const page = pages[current];
+  let html = `<div class="step-label animate-in">${page.label}</div>`;
+  page.questions.forEach((q, qi) => {
+    if (qi > 0) html += `<div class="q-divider"></div>`;
+    html += `<div class="q-block animate-in" style="animation-delay:${qi*0.06}s">`;
+    html += `<div class="q-title">${q.title}</div>`;
+    if (q.type === 'text') {
+      html += `<div class="text-field-wrap">
+        <input class="text-field" id="field_${q.key}" type="text"
+          placeholder="${q.placeholder}" value="${answers[q.key]||''}"
+          oninput="answers['${q.key}']=this.value"/>
+        ${q.hint?`<div class="field-hint">⚠️ ${q.hint}</div>`:''}
       </div>`;
-  }
+    } else {
+      html += `<div class="options" id="opts_${q.key}">`;
+      q.options.forEach(o => {
+        const sel = answers[q.key]===o.text?' selected':'';
+        const safe = o.text.replace(/'/g,"\\'");
+        html += `<button class="opt${sel}" onclick="pick('${q.key}','${safe}',this)">
+          <span class="opt-badge">${o.num}</span>
+          <span class="opt-text">${o.text}</span>
+        </button>`;
+      });
+      html += `</div>`;
+    }
+    html += `</div>`;
+  });
+  html += `<div class="nav animate-in" style="animation-delay:0.15s">`;
+  if (current > 0) html += `<button class="btn-back" onclick="goBack()">← Retour</button>`;
+  html += `<span class="error-msg" id="errmsg">Remplis tous les champs</span>`;
+  const isLast = current === pages.length-1;
+  html += `<button class="btn-next" id="btn-next" onclick="nextPage()">${isLast?'Envoyer ✓':'Continuer →'}</button>`;
+  html += `</div>`;
+  document.getElementById('content').innerHTML = html;
+}
 
-  function restart() {
-    current = 0; answers = {};
-    const btn = document.getElementById('btn-postule');
-    btn.textContent = 'POSTULE MAINTENANT';
-    btn.style.background = '#ffffff';
-    btn.style.color = '#004526';
-    btn.style.boxShadow = '0 6px 30px rgba(255,255,255,0.18)';
-    btn.disabled = false;
-    document.getElementById('questionnaire-wrap').style.display = 'none';
-    renderPage();
-  }
+function pick(key,val,btn) {
+  answers[key]=val;
+  document.getElementById('opts_'+key).querySelectorAll('.opt').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  const err=document.getElementById('errmsg');
+  if(err) err.classList.remove('show');
+}
 
+function allAnswered() {
+  for (const q of pages[current].questions) {
+    if (q.type==='text') {
+      const el=document.getElementById('field_'+q.key);
+      if(el) answers[q.key]=el.value.trim();
+      if(!answers[q.key]) return false;
+    } else { if(!answers[q.key]) return false; }
+  }
+  return true;
+}
+
+async function envoyerFormspree() {
+  const data = { Prénom:answers.prenom||'-', Âge:answers.age||'-', Équipement:answers.pc||'-', "Niveau Lives":answers.niveau_live||'-', "Situation pro":answers.situation_pro||'-', Budget:answers.budget||'-', Téléphone:answers.telephone||'-', Discord:answers.discord||'-', Email:answers.email||'-' };
+  const r = await fetch(FORMSPREE_URL,{ method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(data) });
+  if(!r.ok) throw new Error('err');
+}
+
+function nextPage() {
+  if(!allAnswered()) { const e=document.getElementById('errmsg'); if(e) e.classList.add('show'); return; }
+  const isLast = current===pages.length-1;
+  if (isLast) {
+    const btn=document.getElementById('btn-next');
+    btn.disabled=true; btn.textContent='Envoi en cours…';
+    envoyerFormspree().then(()=>{ current++; renderPage(); }).catch(()=>{
+      btn.disabled=false; btn.textContent='Envoyer ✓';
+      const e=document.getElementById('errmsg');
+      if(e){ e.textContent="Erreur d'envoi, réessaie."; e.classList.add('show'); }
+    });
+  } else {
+    current++; renderPage();
+    document.getElementById('postuler').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
+
+function goBack() { if(current>0){ current--; renderPage(); } }
+
+function renderResult() {
+  renderPbar();
+  let rows=Object.entries(answers).map(([k,v])=>`<div class="s-row"><span class="s-lbl">${labels[k]||k}</span><span class="s-val">${v}</span></div>`).join('');
+  document.getElementById('content').innerHTML=`
+    <div class="result animate-in">
+      <div class="result-icon">✅</div>
+      <div class="result-title">Merci ${answers.prenom||''} !</div>
+      <div class="result-sub">Tes réponses ont bien été enregistrées.<br>L'équipe Grindlab va te contacter très rapidement.</div>
+      <div class="summary">${rows}</div>
+      <button class="btn-restart" onclick="restart()">Recommencer</button>
+    </div>`;
+}
+
+function restart() {
+  current=0; answers={};
   renderPage();
+  document.getElementById('postuler').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+renderPage();
 </script>
-
-
-</body></html>
+</body>
+</html>
