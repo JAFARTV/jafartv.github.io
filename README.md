@@ -1,1 +1,1 @@
-jafartv.github.com
+jafartv.github.io
